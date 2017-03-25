@@ -1,0 +1,27 @@
+body{
+  background: $color-bg-dark;
+}
+
+.bg-white  {
+  background: $color-white;
+}
+
+.bg-dark{
+  background: $color-bg-dark;
+}
+
+.text-denger{
+  color: $color-denger !important;
+}
+
+.text-success{
+  color: $color-success !important;
+}
+
+.progress-btn{
+  display: inline-block !important;
+  position: absolute !important;
+  top: 1px;
+  right: 10px;
+}
+

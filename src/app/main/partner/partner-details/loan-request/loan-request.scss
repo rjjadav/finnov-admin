@@ -1,0 +1,14 @@
+#loan-request{
+  .file-upload-container{
+    //width:100%;
+    background: $color-file-upload-container;
+    border: 2px dashed $color-border;
+    min-height: 100px;
+    padding: 20px;
+
+    md-icon,
+    p {
+      color: #97A1A8;
+    }
+  }
+}

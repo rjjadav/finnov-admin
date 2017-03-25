@@ -1,0 +1,28 @@
+<div class="md-toolbar-tools">
+  <md-button class="md-icon-button" ng-click="vm.lockLeft = !vm.lockLeft">
+    <md-icon class="material-icons">menu</md-icon>
+  </md-button>
+  <h1>FINNOV</h1>
+  <span flex></span>
+  <div class="toolbar-separator"></div>
+  <md-menu-bar id="user-menu">
+    <md-menu md-position-mode="left bottom">
+      <md-button class="user-button" ng-click="$mdOpenMenu()" aria-label="User settings">
+        <div layout="row" layout-align="space-between center">
+          <span class="username" hide-sm>{{name || 'User'}}</span>
+          <md-icon class="material-icons icon fs-16" hide-sm>expand_more</md-icon>
+        </div>
+      </md-button>
+
+
+      <md-menu-content width="3">
+        <!--<md-menu-divider></md-menu-divider>-->
+        <md-menu-item class="md-indent">
+          <md-icon class="material-icons">power_settings_new</md-icon>
+          <md-button ng-click="toolbar.logout()">Logout</md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </md-menu-bar>
+  <div class="toolbar-separator"></div>
+</div>

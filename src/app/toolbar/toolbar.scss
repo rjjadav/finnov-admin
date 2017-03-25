@@ -1,0 +1,24 @@
+#toolbar{
+  #user-menu{
+    height:64px;
+    padding: 0px;
+    .user-button{
+      margin: 0;
+      padding: 0 16px;
+      height: 64px;
+      text-transform: none;
+      border-radius: 0px;
+
+      .username {
+        margin: 0 12px 0 8px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .toolbar-separator {
+    height: 64px;
+    width: 1px;
+    background: rgba(0,0,0,.12);
+  }
+}

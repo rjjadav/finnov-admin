@@ -1,0 +1,33 @@
+<div layout="column" layout-margin>
+  <h2>New Lender</h2>
+
+  <form name="lenderDetailsForm">
+  <md-content class="md-whiteframe-2dp p-20 brad-3" layout="column">
+    <md-input-container>
+      <label>Lender name</label>
+      <input type="text" name="name" ng-model="lender.lenderDetails.name" required/>
+      <div ng-messages="lenderDetailsForm.name.$error" ng-if="lenderDetailsForm.name.$dirty || lenderDetailsForm.name.$touched">
+        <div ng-message="required">Please enter Name. This is Required.</div>
+      </div>
+    </md-input-container>
+    <md-input-container>
+      <label>Email</label>
+      <input type="email" name="email" ng-model="lender.lenderDetails.email" required/>
+      <div ng-messages="lenderDetailsForm.email.$error" ng-if="lenderDetailsForm.email.$dirty || lenderDetailsForm.email.$touched">
+        <div ng-message="required">Please enter Email. This is Required.</div>
+        <div ng-message="pattern,email">Please enter valid Email address. This doesn't look like Email</div>
+      </div>
+    </md-input-container>
+    <md-input-container>
+      <label>Password</label>
+      <input type="password" name="password" ng-model="lender.lenderDetails.password" required/>
+      <div ng-messages="lenderDetailsForm.password.$error" ng-if="lenderDetailsForm.password.$dirty || lenderDetailsForm.password.$touched">
+        <div ng-message="required">Please enter Password. This is Required.</div>
+      </div>
+    </md-input-container>
+    <md-button class="md-raised md-primary no-margin" ng-click="lender.addLender(lender.lenderDetails)">
+      Add Lender
+    </md-button>
+  </md-content>
+  </form>
+</div>

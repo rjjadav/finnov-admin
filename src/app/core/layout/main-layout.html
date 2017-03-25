@@ -1,0 +1,13 @@
+<div id="main-layout" class="template-layout" layout="column" flex>
+
+  <md-toolbar id="toolbar" class="md-menu-toolbar md-whiteframe-1dp md-accent" ui-view="toolbar"></md-toolbar>
+
+  <div id="main-container" layout="row" flex>
+    <md-sidenav id="navigation" class="md-whiteframe-6dp" md-is-locked-open="vm.lockLeft" md-component-id="navigation" ms-scroll ui-view="navigation"></md-sidenav>
+    <div id="content-container" flex layout="column">
+      <md-content id="content" class="animate-slide-up bg-dark" ms-scroll ui-view="content" flex></md-content>
+    </div>
+  </div>
+  <!--<md-sidenav id="quick-panel" class="md-sidenav-right md-whiteframe-4dp" md-component-id="quick-panel" ms-scroll ui-view="quickPanel"></md-sidenav>-->
+
+</div>

@@ -1,0 +1,30 @@
+<div layout="row" layout-align="end center" class="full-height">
+  <div layout="column" layout-align="center center" class="md-whiteframe-5dp bg-white pt-30 pt-60 ph-40" flex="30" flex-xs="100" flex-sm="100" layout-fill>
+    <h1>Login</h1>
+    <form name="loginForm" layout="column" class="mt-50" flex layout-fill layout-margin>
+      <md-input-container>
+        <label>Email</label>
+        <input type="email" name="email" ng-model="login.cred.username" ng-pattern="/^.+@.+\..+$/" required />
+        <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$dirty || loginForm.email.$touched">
+          <div ng-message="required">Please enter Email. This is Required.</div>
+          <div ng-message="pattern">Please enter valid Email address. This doesn't look like Email</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Password</label>
+        <input type="password" ng-model="login.cred.password" name="password" required />
+        <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$dirty || loginForm.password.$touched">
+          <div ng-message="required">Please enter Password. This is Required.</div>
+        </div>
+      </md-input-container>
+
+
+      <md-button class="md-raised md-primary" ng-click="login.adminLogin(login.cred)" ng-disabled="!loginForm.$valid || login.loading">
+        Login
+        <md-progress-circular class="md-accent progress-btn" md-diameter="35" ng-if="login.loading"></md-progress-circular>
+      </md-button>
+    </form>
+  </div>
+</div>
+

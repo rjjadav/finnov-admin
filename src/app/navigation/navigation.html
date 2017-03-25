@@ -1,0 +1,21 @@
+<md-sidemenu class="mt-30">
+  <md-sidemenu-group ng-if="role=='Finnov'">
+    <md-sidemenu-content md-icon="person_add" md-heading="Lenders" md-arrow="true">
+      <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_lender.add">New Lender</md-sidemenu-button>
+      <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_lender.list">All Lenders</md-sidemenu-button>
+    </md-sidemenu-content>
+  </md-sidemenu-group>
+
+  <md-sidemenu-group ng-if="role == 'lender'">
+    <md-sidemenu-content md-icon="person_add" md-heading="Partners" md-arrow="true">
+      <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_partner.add">New Partner</md-sidemenu-button>
+      <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_partner.list">All Partners</md-sidemenu-button>
+    </md-sidemenu-content>
+  </md-sidemenu-group>
+
+  <md-sidemenu-group ng-if="role == 'partner'">
+    <md-sidemenu-content md-icon="receipt" md-heading="Loan Applications" ui-sref="app.main_loans.loans-request.approved">
+
+    </md-sidemenu-content>
+  </md-sidemenu-group>
+</md-sidemenu>

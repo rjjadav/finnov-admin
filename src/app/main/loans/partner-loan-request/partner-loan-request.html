@@ -1,0 +1,17 @@
+<div layout="column" layout-margin>
+  <h1>Loan Requests</h1>
+
+  <md-content class="md-whiteframe-2dp pb-20 brad-3" layout="column">
+    <md-tabs md-selected="plr.currentTab" md-dynamic-height md-border-bottom>
+      <md-tab label="Approved" ui-sref="app.main_loans.loans-request.approved">
+        <md-content class="pv-20" ui-view="approvedLoansView">
+        </md-content>
+      </md-tab>
+      <md-tab label="Rejected" ui-sref="app.main_loans.loans-request.rejected">
+        <md-content class="md-padding" ui-view="rejectedLoansView">
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+

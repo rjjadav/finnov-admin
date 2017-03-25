@@ -1,0 +1,37 @@
+<div layout="column" layout-margin>
+  <h2>Add Partner</h2>
+
+  <form name="partnerForm">
+    <md-content class="md-whiteframe-2dp p-20 brad-3" layout="column">
+      <md-input-container>
+        <label>Partner Name</label>
+        <input type="text" name="name" ng-model="add.partner.name"/>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Short Name</label>
+        <input type="text" name="shortName" ng-model="add.partner.shortName"/>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Code</label>
+        <input type="text" name="code" ng-model="add.partner.code"/>
+      </md-input-container>
+
+      <md-input-container>
+        <label>City</label>
+        <input type="text" name="city" ng-model="add.partner.city"/>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Contact Number</label>
+        <input type="text" name="name" ng-model="add.partner.contactNumber"/>
+      </md-input-container>
+
+      <md-button class="md-primary md-raised no-margin" ng-click="add.addPartner(add.partner)">
+        Add Partner
+      </md-button>
+
+    </md-content>
+  </form>
+</div>

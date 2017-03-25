@@ -1,0 +1,45 @@
+<div layout="row" layout-align="center center" ng-if="!loans.activeloans">
+  <md-progress-circular class="md-accent" md-diameter="50"></md-progress-circular>
+</div>
+
+<div ng-if="loans.activeloans" id="loan-request-list">
+  <md-list>
+    <md-list-item>
+      <span flex>
+        <strong>Customer code</strong>
+      </span>
+      <span flex>
+        <strong>Principle Amount</strong>
+      </span>
+      <span flex>
+        <strong>Transferable Amount</strong>
+      </span>
+      <span flex>
+        <strong>Tenure</strong>
+      </span>
+      <span flex>
+        <strong>Processing Fee</strong>
+      </span>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item ng-repeat="request in loans.activeloans" class="ph-16">
+      <span flex>
+        {{request.custCode}}
+      </span>
+      <span flex>
+        {{request.principalAmount}}
+      </span>
+      <span flex>
+        {{request.transferAmount}}
+      </span>
+      <span flex>
+        {{request.tenure}}
+      </span>
+      <span flex>
+        {{request.processingFee}}
+      </span>
+      <md-divider></md-divider>
+    </md-list-item>
+  </md-list>
+</div>
+
