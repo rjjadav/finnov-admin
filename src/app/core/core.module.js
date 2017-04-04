@@ -14,6 +14,7 @@
     'ui.router',
     'ngMaterial',
     'toastr',
-    'ngFileUpload'
+    'ngFileUpload',
+    'mdDataTable'
   ]);
 })();

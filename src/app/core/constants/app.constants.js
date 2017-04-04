@@ -11,8 +11,8 @@
   function CONST(){
     var data = {
       defaultRedirect :{
-        'Finnov' : 'app.main_lender.list',
-        'lender': 'app.main_partner.list',
+        'Finnov' : 'app.main_admin.list',
+        'lender': 'app.main_lender.partner-list',
         'partner': 'app.main_loans.loans-request.approved'
       }
     };

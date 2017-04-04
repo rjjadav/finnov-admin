@@ -1,0 +1,45 @@
+<div layout="column" layout-margin>
+  <h2>Active Loans</h2>
+
+  <md-content class="md-whiteframe-2dp brad-3">
+    <div layout="row" layout-align="end center" layout-margin>
+      <md-input-container flex="33" flex-sm="100" flex-sm="xs">
+        <label>Search</label>
+        <input type="text" ng-model="search">
+      </md-input-container>
+      <span ng-if="false">
+
+      </span>
+    </div>
+
+    <mdt-table
+      table-card="{visible: false, columnSelector: true}"
+      selectable-rows="true"
+      paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20,100]}"
+      mdt-row="{
+                data: (alReport.nutritionList | filter: search),
+                'column-keys': [
+                    'name',
+                    'calories',
+                    'fat',
+                    'carbs',
+                    'protein',
+                    'sodium',
+                    'calcium',
+                    'iron'
+                ]
+                }">
+      <mdt-header-row>
+        <mdt-column align-rule="left" column-sort="true">Loan Application ID</mdt-column>
+        <mdt-column align-rule="right">Borrower ID</mdt-column>
+        <mdt-column align-rule="right">Loan Date</mdt-column>
+        <mdt-column align-rule="right">Principle Amount</mdt-column>
+        <mdt-column align-rule="right">Tenure</mdt-column>
+        <mdt-column align-rule="right">Paid Amount</mdt-column>
+        <mdt-column align-rule="right">Remaining Amount</mdt-column>
+        <mdt-column align-rule="right">Status</mdt-column>
+      </mdt-header-row>
+    </mdt-table>
+
+  </md-content>
+</div>

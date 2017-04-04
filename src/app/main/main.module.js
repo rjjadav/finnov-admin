@@ -6,9 +6,10 @@
 
   angular.module('app.main',[
     'app.main.auth',
+    'app.main.admin',
     'app.main.lender',
-    'app.main.partner',
     'app.main.loans',
+    'app.main.reports',
   ])
     .config(config);
 

@@ -1,0 +1,23 @@
+#login{
+  .login-intro{
+    padding:128px;
+
+    .logo{
+      width: 128px;
+      height: 128px;
+      line-height: 128px;
+      font-size: 86px;
+      font-weight: 500;
+      margin-bottom: 32px;
+      color: #FFF;
+      border-radius: 2px;
+      text-align: center;
+      background: $color-default;
+    }
+
+    .title{
+      font-size: 42px;
+      font-weight: 300;
+    }
+  }
+}

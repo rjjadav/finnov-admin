@@ -1,57 +1,65 @@
 /**
- * Created by rahul j jadav on 3/8/2017.
+ * Created by rahul j jadav on 3/9/2017.
  */
+//https://drive.google.com/open?id=0B5VXEXop8Qaqa2RkTFhVQ2thN1U
+// https://drive.google.com/open?id=0B5VXEXop8QaqajRzRVNsRmdTelE
 (function () {
   'use strict';
 
-  angular.module('app.main.lender',[])
+  angular.module('app.main.lender',[
+    'app.main.lender.partner-details'
+  ])
     .config(config);
 
-  config.$inject = ['$stateProvider'];
+  config.$inject= ['$stateProvider'];
 
   function config($stateProvider) {
     $stateProvider
-    .state('app.main_lender',{
-      url: '/lender',
-      abstract: true
-    })
-    .state('app.main_lender.add',{
-      url: '/new',
-      views:{
-        'content@app': {
-          templateUrl: 'app/main/lender/add-lender/add-lender.html',
-          controller: 'AddLenderController',
-          controllerAs: 'lender'
-        }
-      },
-      data: {
-        role: 'Finnov'
-      }
-    })
-    .state('app.main_lender.list',{
-      url: '/list',
-      views:{
-        'content@app': {
-          templateUrl: 'app/main/lender/lender-list/lender-list.html',
-          controller: 'LenderListController',
-          controllerAs: 'list'
-        }
-      },
-      data: {
-        role: 'Finnov'
-      }
-    })
-      .state('app.main_lender.details',{
-        url: '/details/:id',
+      .state('app.main_lender',{
+        url: '/lender',
+        abstract: true,
         views:{
-          'content@app': {
-            templateUrl: 'app/main/lender/lender-details/lender-details.html',
-            controller: 'LenderDetailsController',
-            controllerAs: 'details'
+          'content@app':{
+            template: '<div ui-view="partnerContent"></div>'
+          }
+        }
+      })
+
+      .state('app.main_lender.dashboard',{
+        url: '/dashboard',
+        views: {
+          'partnerContent@app.main_lender':{
+            templateUrl: 'app/main/lender/dashboard/dashboard.html',
+            controller: 'LenderDashboardController',
+            controllerAs: 'lDash'
+          }
+        }
+      })
+
+      .state('app.main_lender.add-partner',{
+        url: '/add-partner',
+        views:{
+          'partnerContent@app.main_lender':{
+            templateUrl: 'app/main/lender/add-partner/add-partner.html',
+            controller: 'AddPartnerController',
+            controllerAs: 'add'
           }
         },
-        data: {
-          role: 'Finnov'
+        data:{
+          role: 'lender'
+        }
+      })
+      .state('app.main_lender.partner-list',{
+        url: '/partner-list',
+        views:{
+          'partnerContent@app.main_lender':{
+            templateUrl: 'app/main/lender/partner-list/partner-list.html',
+            controller: 'ListPartnerController',
+            controllerAs: 'list'
+          }
+        },
+        data:{
+          role: 'lender'
         }
       })
   }
