@@ -36,12 +36,13 @@
         })
     }
 
-    function createLoanApplication(ev, custCode){
+    function createLoanApplication(ev, custCode, productOffers){
+      console.log(productOffers);
       // data.get(api.getBorroweByCustCode, {custCode: custCode}, false)
       data.get(api.getApplicantByCustCode, {custCode: custCode}, false)
         .then(function (response) {
           console.log(response);
-          loanApplicationDialog(ev, custCode, response.data.applicant.id);
+          loanApplicationDialog(ev, custCode, response.data.applicant.id,productOffers);
         })
     }
 
@@ -50,7 +51,7 @@
       $mdDialog.show({
         controller: 'KycUploadController',
         controllerAs: 'kyc',
-        templateUrl: 'app/main/loans/partner-loan-request/kyc-upload/kyc-upload.html',
+        templateUrl: 'app/main/partner/partner-loan-request/kyc-upload/kyc-upload.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose:true,
@@ -67,18 +68,20 @@
     }
 
 
-    function loanApplicationDialog(ev, custCode, applicantId){
+    function loanApplicationDialog(ev, custCode, applicantId, productOffers){
+      console.log(productOffers);
       $mdDialog.show({
         controller: 'LoanApplicationController',
         controllerAs: 'application',
-        templateUrl: 'app/main/loans/partner-loan-request/loan-application/loan-application.html',
+        templateUrl: 'app/main/partner/partner-loan-request/loan-application/loan-application.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose:true,
         fullscreen: true, // Only for -xs, -sm breakpoints.
         locals:{
           custCode: custCode,
-          applicantId: applicantId
+          applicantId: applicantId,
+          productOffers: productOffers
         }
       })
         .then(function(answer) {

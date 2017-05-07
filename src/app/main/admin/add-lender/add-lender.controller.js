@@ -12,18 +12,21 @@
   function AddLenderController($scope, toastr, data, api){
     var lender = this;
     lender.addLender = addLender;
+    lender.loading = false;
 
     function addLender(lenderObj){
-      data.post(api.createLender, lenderObj, false)
+      lender.loading = true;
+      data.post(api.addLender, lenderObj, false)
         .then(function(response){
           console.log(response);
-          if(response.data.accountCreated){
+          if(response.data.lenderDetailSaved){
             toastr.success('Lender Added', 'Success');
             lenderObj = undefined;
             $scope.lenderDetailsForm.$valid = true;
           }else{
             toastr.error(response.data.message, 'Failure')
           }
+          lender.loading = false;
         })
     }
   }

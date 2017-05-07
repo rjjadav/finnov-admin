@@ -49,6 +49,11 @@
   height: 100% !important;
 }
 
+.full-width {
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
 // Images in links
 a {
 
@@ -395,7 +400,7 @@ $border-style: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 // Border-radius helpers
-@for $i from 1 through 12 {
+@for $i from 1 through 50 {
 
   .brad-#{$i} {
     border-radius: #{$i + 'px'}
@@ -417,4 +422,18 @@ $border-style: 1px solid rgba(0, 0, 0, 0.12);
   .font-weight-#{$i * 100} {
     font-weight: #{$i * 100};
   }
+}
+
+
+.font-white{
+  color: #fff !important;
+}
+
+.bg-denger {
+  background : $color-bg-denger;
+
+}
+
+.bg-success {
+  background: $color-bg-success;  
 }

@@ -1,33 +1,46 @@
 <md-content id="loan-request">
   <form ng-cloak name="infoForm">
-    <div layout="column" layout-margin>
-      <div layout="column" layout-align="center center" class="file-upload-container" ng-model="loanReq.selectedFile" ngf-drop accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-        <md-icon class="material-icons fs-50">cloud_upload</md-icon>
+    <div layout="row" layout-margin>
+      <div layout="column" flex layout-align="center center" class="file-upload-container brad-15" ng-model="loanReq.selectedFile" ngf-drop accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <md-icon class="material-icons fs-50 md-primary">cloud_upload</md-icon>
         <h3 class="mv-5 fw-600 fs-17">Drag & Drop Files Here</h3>
         <p class="fs-12">or</p>
 
-        <md-button class="md-raised md-accent" ng-model="loanReq.selectedFile" ngf-drop ngf-select accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <md-button class="md-raised md-accent" ng-model="loanReq.selectedFile" ngf-drop ngf-select ngf-accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
           Browse files
         </md-button>
       </div>
 
-      <div layout="row" layout-align="center center" ng-if="loanReq.selectedFile">
-        <span flex>
-          <strong>1. {{loanReq.selectedFile.name}}</strong>
-        </span>
-        <span flex = "10">
-          <md-progress-linear class="md-accent" md-mode="determinate" value="{{loanReq.progress}}"></md-progress-linear>
-        </span>
-        <span>
-          <md-button class="md-raised md-primary" ng-disabled="loanReq.loading" ng-click="loanReq.uploadFile(loanReq.selectedFile)">
-            Upload
-          </md-button>
-        </span>
+
+      <div flex layout="column">
+        <h4 class="mt-0 mh-16">{{(loanReq.loading) ? 'Uploading...': 'Selected File(s)'}}</h4>
+        <span class="mh-16" ng-if="!loanReq.selectedFile">No Files Selected Right Now.</span>
+
+        <md-list flex ng-if="loanReq.selectedFile">
+          <md-divider></md-divider>
+          <md-list-item>
+            <!-- <div class="md-list-item-text" layout="column"> -->
+              <p>1. {{loanReq.selectedFile.name}}</p>
+              <md-button class="md-icon-button md-raised md-primary" ng-click="loanReq.uploadFile(loanReq.selectedFile)" ng-if="!loanReq.requestList">
+                <md-icon class="material-icons">
+                  cloud_upload
+                </md-icon>
+              </md-button>
+              <md-button class="md-icon-button md-accent">
+                <md-icon class="material-icons">close</md-icon>
+              </md-button>
+              <md-icon class="material-icons md-primary mh-30" ng-if="loanReq.requestList">
+                check_circle
+              </md-icon>
+
+              <span style="position: absolute; top: 0; bottom: 0; right: 0; left:0; background-color: rgba(158,158,158,0.2);" ng-style="{'width': loanReq.progress + '%'}">
+              </span>
+            <!-- </div> -->
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
       </div>
-
-
     </div>
-
   </form>
 </md-content>
 

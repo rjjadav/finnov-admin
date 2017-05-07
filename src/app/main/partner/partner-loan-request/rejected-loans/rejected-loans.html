@@ -1,0 +1,75 @@
+<div ng-if="rejected.rejectedLoansList" id="rejected-loans">
+  <!-- <md-list>
+    <md-list-item>
+      <span flex>
+        <strong>Customer code</strong>
+      </span>
+      <span flex>
+        <strong>Loan Request Date</strong>
+      </span>
+      <span flex>
+        <strong>Multi/Retail</strong>
+      </span>
+      <span flex>
+        <strong>Amount</strong>
+      </span>
+      <span flex>
+        <strong>Status</strong>
+      </span>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="ph-16" ng-repeat="request in rejected.rejectedLoansList">
+      <span flex>
+        {{request.custCode}}
+      </span>
+      <span flex>
+        {{request.loanRequestDate | date: 'dd-MMM-yyyy'}}
+      </span>
+      <span flex>
+        {{request.multiOrRetail}}
+      </span>
+      <span flex ng-init="request.eleigibleAmount = 10000">
+        {{request.eleigibleAmount}}
+      </span>
+      <span flex>
+        {{request.status}}
+      </span>
+      <md-divider></md-divider>
+    </md-list-item>
+  </md-list> -->
+  <md-table-container>
+    <table md-table>
+      <thead md-head >
+        <tr md-row >
+          <th md-column><span>Customer Code</span></th>
+          <th md-column><span>Month1 Txns</span></th>
+          <th md-column><span>Month1 Unique Txns</span></th>
+          <th md-column><span>Month2 Txns</span></th>
+          <th md-column><span>Month2 Unique Txns</span></th>
+          <th md-column><span>Month3 Txns</span></th>
+          <th md-column><span>Month3 Unique Txns</span></th>
+          <th md-column><span>Month4 Txns</span></th>
+          <th md-column><span>Month4 Unique Txns</span></th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row ng-repeat="a in rejected.rejectedLoansList">
+          <td md-cell>{{a.custCode}}</td>
+          <td md-cell>{{a.month1TxnCount}}</td>
+          <td md-cell>{{a.month1UnqTxn}}</td>
+          <td md-cell>{{a.month2TxnCount}}</td>
+          <td md-cell>{{a.month2UnqTxn}}</td>
+          <td md-cell>{{a.month3TxnCount}}</td>
+          <td md-cell>{{a.month3UnqTxn}}</td>
+          <td md-cell>{{a.month4TxnCount}}</td>
+          <td md-cell>{{a.month4UnqTxn}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+</div>
+
+<div layout="column" layout-align="center center" ng-if="!rejected.rejectedLoansList" class="pt-20">
+  <span>Fetching Rejected Loans...</span>
+  <md-progress-linear md-mode="indeterminate" class="w-200 mt-10 md-accent"></md-progress-linear>  
+</div>

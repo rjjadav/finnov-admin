@@ -1,21 +1,21 @@
 <div layout="column" layout-margin>
-  <h2>Partner Details</h2>
+  <h2 class="fw-400">{{partnerDetails.partner.shortName}} <span class="fs-14">{{'('+partnerDetails.partner.name+')'}}</span></h2>
 
 
   <md-content class="md-whiteframe-2dp pb-20 brad-3" layout="column">
     <md-tabs md-selected="partnerDetails.currentTab" md-dynamic-height md-border-bottom>
-      <md-tab label="Upload New Loan Request" ui-sref="app.main_lender.details.loan-request">
+      <md-tab label="New Loan Request" ui-sref="app.main_lender.details.loan-request">
         <md-content class="md-padding" ui-view="loanRequestView">
         </md-content>
       </md-tab>
-      <md-tab label="View Loan requests Details" ui-sref="app.main_lender.details.loan-request-list">
-        <md-content class="md-padding" ui-view="loanRequestListView">
+      <md-tab label="Loan requests Details" ui-sref="app.main_lender.details.loan-request-list">
+        <md-content ui-view="loanRequestListView">
         </md-content>
       </md-tab>
-      <md-tab label="Add New User" ui-sref="app.main_lender.details.new-user">
+      <!-- <md-tab label="New User" ui-sref="app.main_lender.details.new-user">
         <md-content class="md-padding" ui-view="newUserView">
         </md-content>
-      </md-tab>
+      </md-tab> -->
 
       <md-tab label="Loan Applications" ui-sref="app.main_lender.details.loan-applications">
         <md-content class="md-padding" ui-view="loanApplicationsView">
@@ -24,6 +24,16 @@
 
       <md-tab label="Active Loans" ui-sref="app.main_lender.details.active-loans">
         <md-content class="md-padding" ui-view="activeLoansView">
+        </md-content>
+      </md-tab>
+
+      <md-tab label="Repayments" ui-sref="app.main_lender.details.repayments">
+        <md-content class="md-padding" ui-view="repaymentsView">
+        </md-content>
+      </md-tab>
+
+      <md-tab label="Batch Job" ui-sref="app.main_lender.details.batch-job">
+        <md-content class="md-padding" ui-view="batchJobView">
         </md-content>
       </md-tab>
     </md-tabs>

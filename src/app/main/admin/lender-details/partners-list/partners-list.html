@@ -1,0 +1,32 @@
+<div layout="row" layout-align="center center" ng-if="!pList.partnersList">
+  <md-progress-circular class="md-accent" md-diameter="50"></md-progress-circular>
+</div>
+
+<div ng-if="pList.partnersList">
+	<div layout="row" layout-align="end center" class="p-10">
+		<md-button class="md-raised md-accent ph-20 font-white" ng-click="pList.addPartner($event)">Add Partner</md-button>
+	</div>
+
+
+	<mdt-table class="mt-10">
+		<mdt-header-row>
+			<mdt-column align-rule="left">Name</mdt-column>
+			<mdt-column align-rule="right">Code</mdt-column>
+			<mdt-column align-rule="right">City</mdt-column>
+			<mdt-column align-rule="right">Contact Number</mdt-column>
+			<mdt-column align-rule="right">Actions</mdt-column>
+		</mdt-header-row>
+	
+		<mdt-row ng-repeat="p in pList.partnersList">
+			<mdt-cell>{{p.name}}</mdt-cell>
+			<mdt-cell>{{p.code}}</mdt-cell>
+			<mdt-cell>{{p.city}}</mdt-cell>
+			<mdt-cell>{{p.contactNumber}}</mdt-cell>
+			<mdt-cell html-content="true">
+				<md-button class="md-accent" ng-click="pList.createPartnerUser($event,p.id)">
+					Add User
+				</md-button>
+			</mdt-cell>
+		</mdt-row>
+	</mdt-table>
+</div>

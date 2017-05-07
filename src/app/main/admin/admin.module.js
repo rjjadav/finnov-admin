@@ -4,7 +4,9 @@
 (function () {
   'use strict';
 
-  angular.module('app.main.admin',[])
+  angular.module('app.main.admin',[
+    'app.main.admin.lender-details'
+    ])
     .config(config);
 
   config.$inject = ['$stateProvider'];
@@ -41,16 +43,29 @@
         role: 'Finnov'
       }
     })
-      .state('app.main_admin.details',{
-        url: '/details/:id',
+    .state('app.main_admin.add-partner',{
+        url: '/add-partner',
         views:{
-          'content@app': {
-            templateUrl: 'app/main/admin/lender-details/lender-details.html',
-            controller: 'LenderDetailsController',
-            controllerAs: 'details'
+          'content@app':{
+            templateUrl: 'app/main/admin/add-partner/add-partner.html',
+            controller: 'AddPartnerController',
+            controllerAs: 'add'
           }
         },
-        data: {
+        data:{
+          role: 'Finnov'
+        }
+      })
+      .state('app.main_admin.partner-list',{
+        url: '/partner-list',
+        views:{
+          'content@app':{
+            templateUrl: 'app/main/admin/partner-list/partner-list.html',
+            controller: 'ListPartnerController',
+            controllerAs: 'list'
+          }
+        },
+        data:{
           role: 'Finnov'
         }
       })

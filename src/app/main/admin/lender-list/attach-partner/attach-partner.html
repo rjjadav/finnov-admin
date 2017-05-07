@@ -1,0 +1,18 @@
+<div role="dialog" aria-label="Eat me!" layout="column" layout-align="center center">
+	<md-content class="md-whiteframe-4dp ph-20 pt-20 pb-10 brad-3 w-300" layout="column">
+		<p>Select Partner from List</p>
+
+		<md-input-container>
+			<label>Select Partner</label>
+			<md-select ng-model="attach.partner">
+				<md-option value="{{p}}" ng-repeat="p in attach.partnerList">{{p.name}}</md-option>
+
+			</md-select>
+		</md-input-container>
+
+		<div layout="row" layout-align="end end">
+			<md-button class="mr-0" ng-click="attach.close()">Cancel</md-button>
+			<md-button class="md-primary mr-0" ng-click="attach.save(attach.partner)">Save</md-button>
+		</div>
+	</md-content>
+</div>

@@ -1,0 +1,45 @@
+<div ng-if="batchJob.jobsList" id="loan-request-list">
+<md-list>
+  <md-list-item>
+    <span flex>
+      <strong>Date</strong>
+    </span>
+    <span flex>
+      <strong>Partner Id</strong>
+    </span>
+    <span flex>
+      <strong>Job Id</strong>
+    </span>
+    <span flex>
+      <!-- <strong>Action</strong> -->
+    </span>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item ng-repeat="request in batchJob.jobsList" >
+    <span flex class="pl-16">
+      {{request.createdOn | date: 'dd-MMM-yyyy'}}
+    </span>
+    <span flex>
+      {{request.partnerId}}
+    </span>
+    <span flex>
+      {{request.id}}
+    </span>
+    <span flex layout="row" layout-align="end center">
+      <md-icon class="material-icons md-primary mh-70" ng-if="request.status== 'COMPLETED'">
+        check_circle
+      </md-icon>
+    	<md-button ng-click="batchJob.startBatchJob(request.id)" class="md-accent" ng-if="request.status== 'NOT_STARTED'">
+        Start Job
+      </md-button>
+    </span>
+    <md-divider></md-divider>
+  </md-list-item>
+</md-list>
+
+</div>
+
+<div layout="column" layout-align="center center" ng-if="!batchJob.jobsList" class="pt-20">
+  <span>Fetching Jobs List...</span>
+  <md-progress-linear md-mode="indeterminate" class="w-200 mt-10 md-accent"></md-progress-linear>  
+</div>

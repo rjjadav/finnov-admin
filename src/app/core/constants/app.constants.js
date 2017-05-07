@@ -12,7 +12,7 @@
     var data = {
       defaultRedirect :{
         'Finnov' : 'app.main_admin.list',
-        'lender': 'app.main_lender.partner-list',
+        'lender': 'app.main_lender.dashboard',
         'partner': 'app.main_loans.loans-request.approved'
       }
     };

@@ -15,6 +15,8 @@
     'ngMaterial',
     'toastr',
     'ngFileUpload',
-    'mdDataTable'
+    'mdDataTable',
+    'md.data.table',
+    'uiCropper',
   ]);
 })();

@@ -1,9 +1,14 @@
-<div layout="row" layout-align="center center" ng-if="!loans.activeloans">
+<!-- <div layout="row" layout-align="center center" ng-if="!loans.activeloans">
   <md-progress-circular class="md-accent" md-diameter="50"></md-progress-circular>
+</div> -->
+
+<div layout="column" layout-align="center center" ng-if="!loans.activeloans" class="pt-20">
+  <span>Fetching Active Loans...</span>
+  <md-progress-linear md-mode="indeterminate" class="w-200 mt-10 md-accent"></md-progress-linear>  
 </div>
 
 <div ng-if="loans.activeloans" id="loan-request-list">
-  <md-list>
+  <!-- <md-list>
     <md-list-item>
       <span flex>
         <strong>Customer code</strong>
@@ -40,6 +45,34 @@
       </span>
       <md-divider></md-divider>
     </md-list-item>
-  </md-list>
+  </md-list> -->
+  <md-table-container>
+    <table md-table>
+      <thead md-head >
+        <tr md-row >
+          <th md-column><span>Customer Code</span></th>
+          <th md-column><span>Loan Start Date</span></th>
+          <th md-column><span>Principle Amount</span></th>
+          <th md-column><span>Transferable Amount</span></th>
+          <th md-column><span>Tenure</span></th>
+          <th md-column><span>Interest</span></th>
+          <th md-column><span>Processing Fee</span></th>
+          <th md-column><span>Next Payment Date</span></th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row ng-repeat="request in loans.activeloans">
+          <td md-cell>{{request.custCode}}</td>
+          <td md-cell>{{request.loanOriginationDate | date: 'dd-MM-yyyy'}}</td>
+          <td md-cell>{{request.principalAmount}}</td>
+          <td md-cell>{{request.transferAmount}}</td>
+          <td md-cell>{{request.tenure}}</td>
+          <td md-cell>{{request.interestCharge}}</td>
+          <td md-cell>{{request.processingFee}}</td>
+          <td md-cell>{{request.nextPaymentDate | date: 'dd-MM-yyyy'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
 </div>
 

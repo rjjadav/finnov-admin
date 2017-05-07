@@ -1,35 +1,48 @@
 <md-sidemenu class="mt-30" ng-if="role=='Finnov'">
-  <md-sidemenu-group>
-    <md-sidemenu-content md-icon="person_add" md-heading="Lenders" md-arrow="true">
-      <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_admin.add">New Lender</md-sidemenu-button>
-      <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_admin.list">All Lenders</md-sidemenu-button>
-    </md-sidemenu-content>
-  </md-sidemenu-group>
+	<md-sidemenu-group>
+		<md-sidemenu-content md-icon="person_add" md-heading="Lenders" md-arrow="true">
+			<md-sidemenu-button ui-sref-active="active" ui-sref="app.main_admin.add">Create Lender</md-sidemenu-button>
+			<md-sidemenu-button ui-sref-active="active" ui-sref="app.main_admin.list">All Lenders</md-sidemenu-button>
+		</md-sidemenu-content>
+	</md-sidemenu-group>
+
+	<md-sidemenu-group>
+		<md-sidemenu-content md-icon="person_add" md-heading="Partners" md-arrow="true">
+			<md-sidemenu-button ui-sref-active="active" ui-sref="app.main_admin.add-partner">New Partner</md-sidemenu-button>
+			<md-sidemenu-button ui-sref-active="active" ui-sref="app.main_admin.partner-list">All Partners</md-sidemenu-button>
+		</md-sidemenu-content>
+	</md-sidemenu-group>
+	
 </md-sidemenu>
 
-
+<!-- <div ng-if="main.partnerList.length > 0"> -->
 <md-sidemenu class="mt-30" ng-if="role == 'lender'">
-  <md-sidemenu-group>
-    <md-sidemenu-content md-icon="dashboard" md-heading="Dashboard" ui-sref="app.main_lender.dashboard">
-    </md-sidemenu-content>
-  </md-sidemenu-group>
-  <md-sidemenu-group>
-    <md-sidemenu-content md-icon="person_add" md-heading="Partners" md-arrow="true">
-      <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_lender.add-partner">New Partner</md-sidemenu-button>
-      <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_lender.list">All Partners</md-sidemenu-button>
-    </md-sidemenu-content>
-  </md-sidemenu-group>
+	<md-sidemenu-group>
+		<md-sidemenu-content md-icon="dashboard" md-heading="Dashboard" ui-sref="app.main_lender.dashboard">
+		</md-sidemenu-content>
+	</md-sidemenu-group>
+	<md-sidemenu-group>
+		<md-sidemenu-content md-icon="person_add" md-heading="Partners" md-arrow="true">
+			<!-- <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_lender.add-partner">New Partner</md-sidemenu-button> -->
+			<!-- <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_lender.partner-list">All Partners</md-sidemenu-button> -->
 
-  <md-sidemenu-group>
-    <md-sidemenu-content md-icon="description" md-heading="Reports" md-arrow="true">
-      <md-sidemenu-button ui-sref-active="active" ui-sref="app.main_reports.active-loans">Approved Loans</md-sidemenu-button>
-    </md-sidemenu-content>
-  </md-sidemenu-group>
+			<md-sidemenu-button ui-sref-active="active" ui-sref="app.main_lender.details.loan-request({partnerId: partner.id})" ng-repeat="partner in nav.partnerList">
+				{{partner.shortName}}
+			</md-sidemenu-button>
+		</md-sidemenu-content>
+	</md-sidemenu-group>
+
+	<!-- <md-sidemenu-group>
+		<md-sidemenu-content md-icon="description" md-heading="Reports" md-arrow="true">
+			<md-sidemenu-button ui-sref-active="active" ui-sref="app.main_reports.active-loans">Approved Loans</md-sidemenu-button>
+		</md-sidemenu-content>
+	</md-sidemenu-group> -->
 </md-sidemenu>
+<!-- </div> -->
 
 <md-sidemenu class="mt-30" ng-if="role == 'partner'">
-  <md-sidemenu-group>
-    <md-sidemenu-content md-icon="receipt" md-heading="Loan Applications" ui-sref="app.main_loans.loans-request.approved">
-    </md-sidemenu-content>
-  </md-sidemenu-group>
+	<md-sidemenu-group>
+		<md-sidemenu-content md-icon="receipt" md-heading="Loan Applications" ui-sref="app.main_loans.loans-request.approved">
+		</md-sidemenu-content>
+	</md-sidemenu-group>
 </md-sidemenu>

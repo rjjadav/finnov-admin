@@ -1,0 +1,80 @@
+<md-dialog aria-label="Update Kyc" flex="80">
+<h2 class="fw-300 mv-10 mh-16">Update Kyc</h2>
+
+<form>
+	<md-dialog-content>
+		<div class="md-dialog-content">
+			<h4>Aadhar Details</h4>
+			<div layout="row" layout-margin layout-align="start start">
+				<div flex>
+					<img ng-src="{{'http://45.56.97.181:8080/Finnov/'+ kyc.kycData.aadhar.pathOfAadharCard}}">
+				</div>
+				
+				<div flex layout="column">
+					<md-input-container>
+						<label>Aadhar Number</label>
+						<input type="text" name="aadharNo" ng-model="kyc.kycData.aadhar.aadharNo" />
+					</md-input-container>
+
+					<md-input-container>
+						<label>Name</label>
+						<input type="text" name="aadharName" ng-model="kyc.kycData.aadhar.name" />
+					</md-input-container>
+
+					<md-input-container>
+						<label>Year of Birth</label>
+						<input type="text" name="birth" ng-model="kyc.kycData.aadhar.dateOfYear" />
+					</md-input-container>
+
+					<md-input-container>
+						<label>Gender</label>
+						<input type="text" name="gender" ng-model="kyc.kycData.aadhar.gender" />
+					</md-input-container>
+				</div>
+			</div>
+
+
+			<h4>PAN Details</h4>
+			<div layout="row" layout-margin layout-align="start start">
+				<div flex>
+					<img ng-src="{{'http://45.56.97.181:8080/Finnov/'+ kyc.kycData.pancard.pathOfPancard}}">
+				</div>
+
+				<div flex layout="column">
+					<md-input-container>
+						<label>PAN Number</label>
+						<input type="text" name="panNo" ng-model="kyc.kycData.pancard.panNo" />
+					</md-input-container>
+
+					<md-input-container>
+						<label>Name</label>
+						<input type="text" name="fatherName" ng-model="kyc.kycData.pancard.name" />
+					</md-input-container>
+
+					<md-input-container>
+						<label>Father Name</label>
+						<input type="text" name="fatherName" ng-model="kyc.kycData.pancard.fatherName" />
+					</md-input-container>
+
+					<md-input-container>
+						<label>Date of Birth</label>
+						<input type="text" name="dateOfBirth" ng-model="kyc.kycData.pancard.dateOfBirth" />
+					</md-input-container>
+				</div>
+			</div>
+		</div>
+	</md-dialog-content>
+
+	<md-dialog-actions layout="row">
+		<span flex></span>
+		<md-button ng-click="kyc.cancel()">
+			Cancel
+		</md-button>
+		
+		<md-button ng-click="kyc.saveKyc()">
+			Save
+		</md-button>
+	</md-dialog-actions>
+</form>
+</md-dialog>
+

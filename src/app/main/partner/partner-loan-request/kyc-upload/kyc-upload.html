@@ -1,0 +1,109 @@
+<md-dialog flex="80">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Upload KYC</h2>
+      <span flex></span>
+    </div>
+  </md-toolbar>
+  <md-dialog-content layout="column" class="p-20" layout-margin>
+    <div layout="column" layout-align="start start" flex="noshrink">
+      <div layout="row" class="full-width">
+        <!-- <md-button class="md-fab md-accent" aria-label="Eat cake" ngf-select="kyc.previewSelfie(kyc.docs.selfie)" ng-model="kyc.docs.selfie" ngf-pattern="'image/*'" ngf-accept="'image/*'">
+          <md-tooltip>Upload Photo</md-tooltip>
+          <md-icon class="material-icons">perm_identity</md-icon>
+        </md-button> -->
+
+        <md-button class="md-raised md-accent" flex="30" ngf-select="kyc.previewSelfie(kyc.docs.selfie)" ng-model="kyc.docs.selfie">Upload Selfie</md-button>
+        <span flex>{{kyc.docs.selfie.name}}</span>
+      </div>
+      <div layout="column">
+        <!-- <label><b>Selected Image</b></label>
+        <span ng-if="!kyc.selfiePreviewImage">No Image Selected</span> -->
+        <img ng-src="{{kyc.selfiePreviewImage}}" style="height: 200px; width: 300px;" ng-if="kyc.selfiePreviewImage">
+      </div>
+    </div>
+
+    <div layout="column" layout-align="start start" flex="noshrink">
+      <div layout="row" class="full-width">
+        <!-- <md-button class="md-fab md-accent" aria-label="Eat cake" ngf-select="kyc.previewAadhar(kyc.docs.aadhar)" ng-model="kyc.docs.aadhar" ngf-pattern="'image/*'" ngf-accept="'image/*'">
+          <md-tooltip>Upload Aadhar</md-tooltip>
+          <md-icon class="material-icons">cloud_upload</md-icon>
+        </md-button> -->
+
+        <md-button flex="30" class="md-raised md-accent" ngf-select="kyc.previewAadhar(kyc.docs.aadhar)" ng-model="kyc.docs.aadhar" ngf-pattern="'image/*'" ngf-accept="'image/*'">
+          Upload Aadhar
+        </md-button>
+        <span flex>{{kyc.docs.aadhar.name}}</span>
+      </div>
+
+      <div layout="row" class="full-width" ng-if="kyc.aadharPreviewImage">
+        <div class="cropArea h-350 w-500">
+          <ui-cropper 
+          image="kyc.aadharPreviewImage" 
+          result-image="kyc.aadharCroppedImage" 
+          area-type="rectangle"
+          result-image-size="'selection'"></ui-cropper>
+        </div>
+
+        
+        <div flex layout="column" layout-margin>
+          <span>Cropped Image :</span>
+          <div>
+            <img ng-src="{{kyc.aadharCroppedImage}}" />
+          </div>
+        </div>        
+
+        <!-- <pre>
+          {{kyc.aadharCroppedImage}}
+        </pre> -->
+      </div>
+    </div>
+
+    <div layout="column" layout-align="start start" flex="noshrink">
+      <div layout="row" class="full-width">
+        <md-button class="md-raised md-accent" flex="30" ngf-select="kyc.previewPancard(kyc.docs.pancard)" ng-model="kyc.docs.pancard" >
+          Upload Pancard
+        </md-button>
+        <span flex>{{kyc.docs.pancard.name}}</span>
+      </div>
+
+
+      <div layout="row" class="full-width" ng-if="kyc.pancardPreviewImage">
+        <div class="cropArea h-350 w-500">
+          <ui-cropper 
+          image="kyc.pancardPreviewImage" 
+          result-image="kyc.pancardCroppedImage" 
+          area-type="rectangle"
+          result-image-size="'selection'"></ui-cropper>
+        </div>
+
+        
+        <div flex layout="column" layout-margin>
+          <span>Cropped Image :</span>
+          <div>
+            <img ng-src="{{kyc.pancardCroppedImage}}" />
+          </div>
+        </div>        
+
+        <!-- <pre>
+          {{kyc.aadharCroppedImage}}
+        </pre> -->
+      </div>
+    </div>
+
+  </md-dialog-content>
+  <!--<md-dialog-actions layout="row" layout-align="center center">-->
+
+  <!--</md-dialog-actions>-->
+
+  <md-dialog-actions layout="row">
+    <span flex></span>
+    <span ng-if="kyc.uploading">
+      <md-progress-circular class="md-accent" md-diameter="35">
+      </md-progress-circular>
+    </span>
+    <md-button class="md-raised md-primary m-16" ng-click="kyc.uploadKyc(kyc.docs)" ng-disabled="kyc.uploading || !kyc.docs.selfie || !kyc.docs.aadhar || !kyc.docs.pancard">
+      Submit
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

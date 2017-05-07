@@ -1,0 +1,57 @@
+<md-content id="loan-request">
+  <form ng-cloak name="infoForm">
+    <div layout="row" layout-margin>
+      <div layout="column" flex="50" layout-align="center center" class="file-upload-container brad-15" ng-model="loanReq.selectedFile" ngf-drop accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <md-icon class="material-icons fs-50 md-primary">cloud_upload</md-icon>
+        <h3 class="mv-5 fw-600 fs-17">Drag & Drop Files Here</h3>
+        <p class="fs-12">or</p>
+
+        <md-button class="md-raised md-accent" ng-model="repayments.selectedFile" ngf-drop ngf-select accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+          Browse files
+        </md-button>
+      </div>
+
+      <!-- <div layout="row" layout-align="center center" ng-if="repayments.selectedFile">
+        <span flex>
+          <strong>1. {{repayments.selectedFile.name}}</strong>
+        </span>
+        <span flex = "10">
+          <md-progress-linear class="md-accent" md-mode="determinate" value="{{repayments.progress}}"></md-progress-linear>
+        </span>
+        <span>
+          <md-button class="md-raised md-primary" ng-disabled="loanReq.loading" ng-click="repayments.uploadFile(repayments.selectedFile)">
+            Upload
+          </md-button>
+        </span>
+      </div> -->
+
+
+      <div flex layout="column">
+        <h4 class="mt-0 mh-16">{{(repayments.loading) ? 'Uploading...': 'Selected File(s)'}}</h4>
+        <span class="mh-16" ng-if="!repayments.selectedFile">No Files Selected Right Now.</span>
+        <md-list flex ng-if="repayments.selectedFile">
+          <md-divider></md-divider>
+          <md-list-item>
+            <!-- <div class="md-list-item-text" layout="column"> -->
+              <p>1. {{repayments.selectedFile.name}}</p>
+              <md-button class="md-icon-button md-raised md-accent" ng-click="repayments.uploadFile(repayments.selectedFile)" ng-if="!repayments.bulkupdatedSuccess">
+                <md-icon class="material-icons">
+                  cloud_upload
+                </md-icon>
+              </md-button>
+              <md-icon class="material-icons md-primary mh-30" ng-if="repayments.bulkupdatedSuccess">
+                check_circle
+              </md-icon>
+
+              <span style="position: absolute; top: 0; bottom: 0; right: 0; left:0; background-color: rgba(158,158,158,0.2);" ng-style="{'width': repayments.progress + '%'}">
+              </span>
+            <!-- </div> -->
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
+      </div>
+    </div>
+
+  </form>
+</md-content>
+

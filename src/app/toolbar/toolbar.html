@@ -8,10 +8,16 @@
   <md-menu-bar id="user-menu">
     <md-menu md-position-mode="left bottom">
       <md-button class="user-button" ng-click="$mdOpenMenu()" aria-label="User settings">
-        <div layout="row" layout-align="space-between center">
-          <span class="username" hide-sm>{{name || 'User'}}</span>
-          <md-icon class="material-icons icon fs-16" hide-sm>expand_more</md-icon>
+        <div layout="row">
+          <div layout="column" layout-align="center center">
+            <md-icon class="material-icons">account_circle</md-icon>  
+          </div>
+          <div layout="row" layout-align="space-between center">
+            <span class="username" hide-sm>{{name || 'User'}}</span>
+            <md-icon class="material-icons icon fs-16" hide-sm>expand_more</md-icon>
+          </div>  
         </div>
+        
       </md-button>
 
 

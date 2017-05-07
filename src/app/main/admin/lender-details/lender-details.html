@@ -1,37 +1,17 @@
 <div layout="column">
-  <div layout="row" layout-align="start center">
-    <md-button class="md-icon-button" ui-sref="app.main_admin.list">
-      <md-tooltip>Back</md-tooltip>
-      <md-icon class="material-icons">arrow_back</md-icon>
-    </md-button>
-    <h2>Add Details</h2>
-  </div>
+	<div layout="row" layout-align="start center">
+	<h2 class="ml-16">Lender Details</h2>
+</div>
 
-  <form name="lenderDetailsForm">
-  <md-content class="md-whiteframe-2dp p-20 brad-3 mh-16" layout="column">
-    <md-input-container>
-      <label>Code</label>
-      <input type="text" ng-model="details.lenderDetails.code"/>
-    </md-input-container>
-
-    <md-input-container>
-      <label>City</label>
-      <input type="text" ng-model="details.lenderDetails.city"/>
-    </md-input-container>
-
-    <md-input-container>
-      <label>State</label>
-      <input type="text" ng-model="details.lenderDetails.state"/>
-    </md-input-container>
-
-    <md-input-container>
-      <label>Contact Number</label>
-      <input type="text" ng-model="details.lenderDetails.contactNumber"/>
-    </md-input-container>
-
-    <md-button class="md-raised md-primary no-margin" ng-click="details.addLenderDetails(details.lenderDetails)">
-      Save Lender Details
-    </md-button>
-  </md-content>
-  </form>
+<md-content class="md-whiteframe-2dp p-0 brad-3 mh-16" layout="column">
+	<md-tabs md-dynamic-height md-border-bottom md-selected="details.currentTab">
+		<md-tab label="Partners" ui-sref="app.main_admin.lender-details.partners">
+			<md-content ui-view="partnersView"></md-content>
+		</md-tab>
+		
+		<md-tab label="Users" ui-sref="app.main_admin.lender-details.users">
+			<md-content ui-view="usersView"></md-content>
+		</md-tab>
+	</md-tabs>
+</md-content>
 </div>

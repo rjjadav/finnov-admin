@@ -16,6 +16,7 @@
 
     loanReq.progress = 0;
     loanReq.loading = false;
+    loanReq.requestList = undefined;
 
     function uploadFile(file){
       // console.log(file);
@@ -24,6 +25,7 @@
         .then(function(response){
           console.log(response);
           if(response.data.list){
+            loanReq.requestList = response.data.list;
             toastr.success('File Uploaded Successfully', 'Success');
           }else{
             toastr.error('Failure Uploading File', 'Failure');

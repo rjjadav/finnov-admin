@@ -24,7 +24,7 @@
           url: '/loans-request',
           views:{
             'loansView@app.main_loans' : {
-              templateUrl: 'app/main/loans/partner-loan-request/partner-loan-request.html',
+              templateUrl: 'app/main/partner/partner-loan-request/partner-loan-request.html',
               controller: 'PartnerLoanRequestController',
               controllerAs: 'plr'
             }
@@ -34,7 +34,7 @@
           url: '/approved',
           views: {
             'approvedLoansView@app.main_loans.loans-request':{
-              templateUrl: 'app/main/loans/partner-loan-request/approved-loans/approved-loans.html',
+              templateUrl: 'app/main/partner/partner-loan-request/approved-loans/approved-loans.html',
               controller: 'ApprovedLoansController',
               controllerAs: 'approved'
             }
@@ -48,7 +48,7 @@
           url: '/rejected',
           views: {
             'rejectedLoansView@app.main_loans.loans-request':{
-              templateUrl: 'app/main/loans/partner-loan-request/rejected-loans/rejected-loans.html',
+              templateUrl: 'app/main/partner/partner-loan-request/rejected-loans/rejected-loans.html',
               controller: 'RejectedLoansController',
               controllerAs: 'rejected'
             }

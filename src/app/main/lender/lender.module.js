@@ -36,24 +36,24 @@
         }
       })
 
-      .state('app.main_lender.add-partner',{
-        url: '/add-partner',
-        views:{
-          'partnerContent@app.main_lender':{
-            templateUrl: 'app/main/lender/add-partner/add-partner.html',
-            controller: 'AddPartnerController',
-            controllerAs: 'add'
-          }
-        },
-        data:{
-          role: 'lender'
-        }
-      })
+      // .state('app.main_lender.add-partner',{
+      //   url: '/add-partner',
+      //   views:{
+      //     'partnerContent@app.main_lender':{
+      //       templateUrl: 'app/main/lender/add-partner/add-partner.html',
+      //       controller: 'AddPartnerController',
+      //       controllerAs: 'add'
+      //     }
+      //   },
+      //   data:{
+      //     role: 'lender'
+      //   }
+      // })
       .state('app.main_lender.partner-list',{
         url: '/partner-list',
         views:{
           'partnerContent@app.main_lender':{
-            templateUrl: 'app/main/lender/partner-list/partner-list.html',
+            templateUrl: 'app/main/admin/partner-list/partner-list.html',
             controller: 'ListPartnerController',
             controllerAs: 'list'
           }

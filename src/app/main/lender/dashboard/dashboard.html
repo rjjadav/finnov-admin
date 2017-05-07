@@ -15,7 +15,7 @@
 
         <div layout="column" layout-align="center center" class="pt-8 pb-32">
           <div class="fs-50 text-default">
-            {{12345 | number}}
+            {{lDash.dashboardDetails.currentWeekDetails.noOfLoans | number}}
           </div>
           <div class="text-label fw-400">
             TOTAL APPLICATIONS
@@ -24,7 +24,7 @@
 
         <div class="p-16 bg-light-gray border-top" layout="row" layout-align="start center">
           <span class="text-label">Last week:</span>
-          <span class="h4 ml-8">{{12345 | number}}</span>
+          <span class="h4 ml-8">{{lDash.dashboardDetails.lastWeekDetails.noOfLoans | number}}</span>
         </div>
       </md-card>
     </div>
@@ -44,7 +44,7 @@
 
         <div layout="column" layout-align="center center" class="pt-8 pb-32">
           <div class="fs-50 text-accent">
-            {{12345 | number}}
+            {{lDash.dashboardDetails.currentWeekDetails.totalLoanDisbursed | number}}
           </div>
           <div class="text-label fw-400">
             TOTAL LOAN DISBURSED
@@ -53,7 +53,9 @@
 
         <div class="p-16 bg-light-gray border-top" layout="row" layout-align="start center">
           <span class="text-label">Last week:</span>
-          <span class="h4 ml-8">{{12345 | number}}</span>
+          <span class="h4 ml-8">
+            {{lDash.dashboardDetails.lastWeekDetails.totalLoanDisbursed | number}}
+          </span>
         </div>
       </md-card>
     </div>
@@ -73,7 +75,7 @@
 
         <div layout="column" layout-align="center center" class="pt-8 pb-32">
           <div class="fs-50 text-default">
-            {{12345 | number}}
+            {{lDash.dashboardDetails.currentWeekDetails.totalRepayment | number}}
           </div>
           <div class="text-label fw-400">
             TOTAL REPAYMENTS
@@ -82,7 +84,9 @@
 
         <div class="p-16 bg-light-gray border-top" layout="row" layout-align="start center">
           <span class="text-label">Last week:</span>
-          <span class="h4 ml-8">{{12345 | number}}</span>
+          <span class="h4 ml-8">
+            {{lDash.dashboardDetails.lastWeekDetails.totalRepayment | number}}
+          </span>
         </div>
       </md-card>
     </div>
@@ -102,7 +106,7 @@
 
         <div layout="column" layout-align="center center" class="pt-8 pb-32">
           <div class="fs-50 text-accent">
-            {{12345 | number}}
+            {{lDash.dashboardDetails.currentWeekDetails.totalRemaining | number}}
           </div>
           <div class="text-label fw-400">
             TOTAL REMAINING
@@ -111,7 +115,9 @@
 
         <div class="p-16 bg-light-gray border-top" layout="row" layout-align="start center">
           <span class="text-label">Last week:</span>
-          <span class="h4 ml-8">{{12345 | number}}</span>
+          <span class="h4 ml-8">
+            {{lDash.dashboardDetails.lastWeekDetails.totalRemaining | number}}
+          </span>
         </div>
       </md-card>
     </div>

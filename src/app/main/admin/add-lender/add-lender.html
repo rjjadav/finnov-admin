@@ -1,5 +1,5 @@
 <div layout="column" layout-margin>
-  <h2>New Lender</h2>
+  <h2>Create Lender</h2>
 
   <form name="lenderDetailsForm">
   <md-content class="md-whiteframe-2dp p-20 brad-3" layout="column">
@@ -11,6 +11,37 @@
       </div>
     </md-input-container>
     <md-input-container>
+      <label>Code</label>
+      <input type="text" ng-model="lender.lenderDetails.code" name="code" required/>
+      <div ng-messages="lenderDetailsForm.code.$error" ng-if="lenderDetailsForm.code.$dirty || lenderDetailsForm.code.$touched">
+        <div ng-message="required">Please enter Code. This is Required.</div>
+      </div>
+    </md-input-container>
+
+    <md-input-container>
+      <label>City</label>
+      <input type="text" ng-model="lender.lenderDetails.city" name="city" required />
+      <div ng-messages="lenderDetailsForm.city.$error" ng-if="lenderDetailsForm.city.$dirty || lenderDetailsForm.city.$touched">
+        <div ng-message="required">Please enter City. This is Required.</div>
+      </div>
+    </md-input-container>
+
+    <md-input-container>
+      <label>State</label>
+      <input type="text" ng-model="lender.lenderDetails.state" name="state" required />
+      <div ng-messages="lenderDetailsForm.state.$error" ng-if="lenderDetailsForm.state.$dirty || lenderDetailsForm.state.$touched">
+        <div ng-message="required">Please enter State. This is Required.</div>
+      </div>
+    </md-input-container>
+
+    <md-input-container>
+      <label>Contact Number</label>
+      <input type="text" ng-model="lender.lenderDetails.contactNumber" name="contactNumber" required />
+      <div ng-messages="lenderDetailsForm.contactNumber.$error" ng-if="lenderDetailsForm.contactNumber.$dirty || lenderDetailsForm.contactNumber.$touched">
+        <div ng-message="required">Please enter Contact Number. This is Required.</div>
+      </div>
+    </md-input-container>
+    <!-- <md-input-container>
       <label>Email</label>
       <input type="email" name="email" ng-model="lender.lenderDetails.email" required/>
       <div ng-messages="lenderDetailsForm.email.$error" ng-if="lenderDetailsForm.email.$dirty || lenderDetailsForm.email.$touched">
@@ -24,10 +55,15 @@
       <div ng-messages="lenderDetailsForm.password.$error" ng-if="lenderDetailsForm.password.$dirty || lenderDetailsForm.password.$touched">
         <div ng-message="required">Please enter Password. This is Required.</div>
       </div>
-    </md-input-container>
-    <md-button class="md-raised md-primary no-margin" ng-click="lender.addLender(lender.lenderDetails)">
-      Add Lender
-    </md-button>
+    </md-input-container> -->
+    <div layout="column" layout-align="center end">
+      <md-button class="md-raised md-primary no-margin ph-50" ng-click="lender.addLender(lender.lenderDetails)" ng-disabled="lender.loading || !lenderDetailsForm.$valid">
+        Save Lender
+
+        <md-progress-circular class="md-accent progress-btn" md-diameter="35" ng-if="lender.loading"></md-progress-circular>
+      </md-button>  
+    </div>
+    
   </md-content>
   </form>
 </div>

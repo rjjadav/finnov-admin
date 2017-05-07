@@ -1,0 +1,26 @@
+<md-dialog aria-label="create user for lender" flex="50">
+	<md-dialog-content layout-margin class="pt-10">
+		<h2 class="mt-20">Create User</h2>
+		<form name="userForm" layout="column">
+			<md-input-container>
+				<label>Name</label>
+				<input type="text" name="username" ng-model="user.userDetails.name" required />
+			</md-input-container>
+
+			<md-input-container>
+				<label>Email</label>
+				<input type="text" name="email" ng-model="user.userDetails.email" required />
+			</md-input-container>
+
+			<md-input-container>
+				<label>Password</label>
+				<input type="password" name="password" ng-model="user.userDetails.password" required />
+			</md-input-container>
+
+			<div layout="row" layout-align="end center">
+				<md-button class="m-0" ng-click="user.cancel()">Cancel</md-button>
+				<md-button class="md-accent m-0" ng-click="user.createPartnerLogin(user.userDetails)">Create</md-button>
+			</div>
+		</form>
+	</md-dialog-content>
+</md-dialog>

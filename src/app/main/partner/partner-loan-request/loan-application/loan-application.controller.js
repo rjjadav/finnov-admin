@@ -7,14 +7,17 @@
   angular.module('app.main.loans')
     .controller('LoanApplicationController',LoanApplicationController);
 
-  LoanApplicationController.$inject = ['$mdDialog','toastr','data','api','custCode','applicantId'];
+  LoanApplicationController.$inject = ['$mdDialog','toastr','data','api','custCode','applicantId','productOffers'];
 
-  function LoanApplicationController($mdDialog, toastr,data, api, custCode, applicantId){
+  function LoanApplicationController($mdDialog, toastr,data, api, custCode, applicantId, productOffers){
     var application = this;
     application.getBorroweByCustCode = getBorroweByCustCode;
     application.createLoanApplication = createLoanApplication;
 
     application.loanApplication = undefined;
+    application.productOffers = productOffers;
+    application.close = close; 
+    console.log(application.productOffers);
 
     application.getBorroweByCustCode();
     function getBorroweByCustCode(){
@@ -31,12 +34,16 @@
             application.loanApplication = {};
             application.loanApplication.custCode = custCode;
             application.loanApplication.applicantId = applicantId;
+
           }
         });
     }
 
-    function createLoanApplication(loanApplication){
+    function createLoanApplication(loanApplication,productOffer){
+      console.log(JSON.parse(productOffer));
       loanApplication.dateOfAcceptance = new Date(loanApplication.dateOfAcceptance.split('-')[2],loanApplication.dateOfAcceptance.split('-')[1],loanApplication.dateOfAcceptance.split('-')[0]);
+      loanApplication.productOffer = JSON.parse(productOffer);
+      delete loanApplication.id;
       console.log(loanApplication.dateOfAcceptance);
       data.post(api.createLoanApplication, loanApplication, false)
         .then(function (response) {
@@ -48,6 +55,10 @@
             toastr.error('Fail to create Loan application', 'Failure');
           }
         });
+    }
+
+    function close(){
+      $mdDialog.cancel();
     }
   }
 })();

@@ -49,6 +49,7 @@
           $rootScope.loggedIn = true;
           $rootScope.role = response.data.accountType;
           $rootScope.name = response.data.name;
+          $rootScope.$broadcast('user_login_success');
           $state.go(CONST.defaultRedirect[$rootScope.role]);
         }else{
           $rootScope.loggedIn = false;

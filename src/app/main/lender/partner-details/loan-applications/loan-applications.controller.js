@@ -7,12 +7,13 @@
   angular.module('app.main.lender.partner-details')
     .controller('LoanApplicationsController',LoanApplicationsController);
 
-  LoanApplicationsController.$inject = ['$stateParams','data','api'];
+  LoanApplicationsController.$inject = ['$stateParams','$mdDialog','data','api'];
 
-  function LoanApplicationsController($stateParams, data, api) {
+  function LoanApplicationsController($stateParams, $mdDialog, data, api) {
     var applications = this;
     applications.getLoanApplications = getLoanApplications;
     applications.createLoans = createLoans;
+    applications.checkKyc = checkKyc;
 
     applications.applicationsList = undefined;
 
@@ -36,6 +37,34 @@
           }
 
         })
+    }
+
+    function checkKyc(ev,application){
+      console.log(application);
+
+      $mdDialog.show({
+        controller: 'UpdateKYCController',
+        controllerAs: 'kyc',
+        templateUrl: 'app/main/lender/partner-details/update-kyc/update-kyc.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true,
+        fullscreen: true,
+        locals:{
+          application : application,
+          partnerId: $stateParams.partnerId
+        }
+      })
+      .then(function(response){
+        if(response.kycEdited){
+          applications.getLoanApplications();
+        }
+      });
+      // data.get(api.getKycDetail, {custCode: application.custCode, partnerId : $stateParams.partnerId})
+      // .then(function(response){
+      //   console.log(response);
+      // })
+      // .catch();
     }
 
   }

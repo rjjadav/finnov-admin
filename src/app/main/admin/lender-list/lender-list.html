@@ -5,21 +5,27 @@
       <md-divider></md-divider>
       <md-list-item>
         <span flex><strong>Name</strong></span>
-        <span flex><strong>Email</strong></span>
+        <span flex><strong>City</strong></span>
         <span flex><strong>Active</strong></span>
         <span flex><strong>Created On</strong></span>
-        <span flex="5"><strong>Action</strong></span>
+        <span flex="10"><strong>Action</strong></span>
       </md-list-item>
       <md-divider></md-divider>
       <md-list-item ng-repeat="lender in list.lendersList" ng-click="null">
         <span flex>{{lender.name}}</span>
-        <span flex>{{lender.email}}</span>
+        <span flex>{{lender.city}}</span>
         <span flex>{{lender.active}}</span>
         <span flex>{{lender.createdOn | date: 'dd-MMM-yyyy'}}</span>
-        <span flex="5">
-          <md-button class="md-icon-button" ui-sref="app.main_admin.details({id: lender.id})">
-            <md-tooltip>Add Details</md-tooltip>
+        <span flex="10" layout="row">
+
+          <md-button class="md-icon-button" ng-click="list.addPartner($event, lender.id)">
+            <md-tooltip>Add Partners</md-tooltip>
             <md-icon class="material-icons">add_circle_outline</md-icon>
+          </md-button>
+
+          <md-button class="md-icon-button" ui-sref="app.main_admin.lender-details.partners({id: lender.id})">
+            <md-tooltip>Add Details</md-tooltip>
+            <md-icon class="material-icons">more_vert</md-icon>
           </md-button>
         </span>
         <md-divider></md-divider>

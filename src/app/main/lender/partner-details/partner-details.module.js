@@ -53,20 +53,20 @@
           tabIndex: 1
         }
       })
-      .state('app.main_lender.details.new-user',{
-        url: '/new-user',
-        views: {
-          'newUserView@app.main_lender.details': {
-            templateUrl: 'app/main/lender/partner-details/new-user/new-user.html',
-            controller: 'NewUserController',
-            controllerAs: 'newUser'
-          }
-        },
-        data:{
-          role: 'lender',
-          tabIndex: 2
-        }
-      })
+      // .state('app.main_lender.details.new-user',{
+      //   url: '/new-user',
+      //   views: {
+      //     'newUserView@app.main_lender.details': {
+      //       templateUrl: 'app/main/lender/partner-details/new-user/new-user.html',
+      //       controller: 'NewUserController',
+      //       controllerAs: 'newUser'
+      //     }
+      //   },
+      //   data:{
+      //     role: 'lender',
+      //     tabIndex: 2
+      //   }
+      // })
       .state('app.main_lender.details.loan-applications',{
         url: '/loan-applications',
         views: {
@@ -78,7 +78,7 @@
         },
         data:{
           role: 'lender',
-          tabIndex: 3
+          tabIndex: 2
         }
       })
       .state('app.main_lender.details.active-loans',{
@@ -92,7 +92,35 @@
         },
         data:{
           role: 'lender',
+          tabIndex: 3
+        }
+      })
+      .state('app.main_lender.details.repayments',{
+        url: '/repayments',
+        views: {
+          'repaymentsView@app.main_lender.details': {
+            templateUrl: 'app/main/lender/partner-details/repayments/repayments.html',
+            controller: 'RepaymentController',//'RepaymentsController',
+            controllerAs: 'repayments'
+          }
+        },
+        data:{
+          role: 'lender',
           tabIndex: 4
+        }
+      })
+      .state('app.main_lender.details.batch-job',{
+        url: '/batch-job',
+        views: {
+          'batchJobView@app.main_lender.details': {
+            templateUrl: 'app/main/lender/partner-details/batch-job/batch-job.html',
+            controller: 'BatchJobController',//'RepaymentsController',
+            controllerAs: 'batchJob'
+          }
+        },
+        data:{
+          role: 'lender',
+          tabIndex: 5
         }
       });
   }
