@@ -20,9 +20,11 @@
     list.loanRequestListObj = undefined;
     list.loanRequestList = undefined;
     list.filters = undefined;
+    list.loading = false;
 
     list.getNewLoanRequest();
     function getNewLoanRequest() {
+      list.loading = true;
       data.get(api.getNewLoanRequest,{partnerId : $stateParams.partnerId}, true)
         .then(function(response){
           console.log(response);
@@ -30,6 +32,7 @@
             list.loanRequestList = response.data.list;
             list.loanRequestListObj = angular.copy(list.loanRequestList);
           }
+          list.loading = false;
         })
         .catch()
     }
@@ -44,7 +47,7 @@
       //   }
       // });
       // console.log(updatedList);
-
+      list.loading = true;
       data.post(api.updateLoanRequest, {list:loanList}, false)
         .then(function(response){
           if(response.data.statusUpdated == true){
@@ -52,6 +55,7 @@
           }else{
             toastr.error('Failure updating Loan Request List ', 'Failure');
           }
+          list.loading = false;
         });
     }
 

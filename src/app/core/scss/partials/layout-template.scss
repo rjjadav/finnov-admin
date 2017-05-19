@@ -37,7 +37,11 @@ body{
 .progress-btn{
   display: inline-block !important;
   position: absolute !important;
-  top: 1px;
+  top: 7px;
   right: 10px;
+}
+
+.content-overlay{
+  margin-top: -50px ;
 }
 

@@ -1,15 +1,18 @@
-<div layout="column" layout-margin>
-  <h2 class="fw-400">{{partnerDetails.partner.shortName}} <span class="fs-14">{{'('+partnerDetails.partner.name+')'}}</span></h2>
+<div layout="column" id="partner-details">
+  <div class="h-120"  md-colors="{background: 'accent-300'}">
+    <h2 class="fw-400 ml-20 font-white">{{partnerDetails.partner.shortName}} <span class="fs-14">{{'('+partnerDetails.partner.name+')'}}</span></h2>
+  </div>
+  
 
 
-  <md-content class="md-whiteframe-2dp pb-20 brad-3" layout="column">
+  <md-content class="md-whiteframe-2dp brad-3 pb-20 mh-20 mb-20 content-overlay tab-content bg-white" layout="column">
     <md-tabs md-selected="partnerDetails.currentTab" md-dynamic-height md-border-bottom>
       <md-tab label="New Loan Request" ui-sref="app.main_lender.details.loan-request">
-        <md-content class="md-padding" ui-view="loanRequestView">
+        <md-content class="md-padding bg-white" ui-view="loanRequestView">
         </md-content>
       </md-tab>
       <md-tab label="Loan requests Details" ui-sref="app.main_lender.details.loan-request-list">
-        <md-content ui-view="loanRequestListView">
+        <md-content ui-view="loanRequestListView" class="bg-white">
         </md-content>
       </md-tab>
       <!-- <md-tab label="New User" ui-sref="app.main_lender.details.new-user">
@@ -18,22 +21,27 @@
       </md-tab> -->
 
       <md-tab label="Loan Applications" ui-sref="app.main_lender.details.loan-applications">
-        <md-content class="md-padding" ui-view="loanApplicationsView">
+        <md-content ui-view="loanApplicationsView" class="bg-white">
         </md-content>
       </md-tab>
 
       <md-tab label="Active Loans" ui-sref="app.main_lender.details.active-loans">
-        <md-content class="md-padding" ui-view="activeLoansView">
+        <md-content ui-view="activeLoansView" class="bg-white">
         </md-content>
       </md-tab>
 
       <md-tab label="Repayments" ui-sref="app.main_lender.details.repayments">
-        <md-content class="md-padding" ui-view="repaymentsView">
+        <md-content ui-view="repaymentsView" class="bg-white">
         </md-content>
       </md-tab>
 
       <md-tab label="Batch Job" ui-sref="app.main_lender.details.batch-job">
-        <md-content class="md-padding" ui-view="batchJobView">
+        <md-content ui-view="batchJobView" class="bg-white">
+        </md-content>
+      </md-tab>
+
+      <md-tab label="Loan Criteria" ui-sref="app.main_lender.details.loan-criteria">
+        <md-content class="md-padding bg-white" ui-view="criteriaView">
         </md-content>
       </md-tab>
     </md-tabs>

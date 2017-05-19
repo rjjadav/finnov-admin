@@ -1,0 +1,36 @@
+<div layout="column">
+	<h2 class="fw-300 mt-0">Define Loan Criteria</h2>
+
+	<md-input-container>
+		<label>Minimum months of history</label>
+		<input type="number" name="historyMonth" ng-model="criteria.criteriaList.noOfMonthHistroy">
+	</md-input-container>
+
+
+	<md-input-container>
+		<label>Debit card swipe percentage</label>
+		<input type="number" name="historyMonth" ng-model="criteria.criteriaList.perDebitCard">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Minimum card swipes per month</label>
+		<input type="number" name="historyMonth" ng-model="criteria.criteriaList.minimumCardSwipePerMonth">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Minimum unique card swipes per month</label>
+		<input type="number" name="historyMonth" ng-model="criteria.criteriaList.minimumUniqueCardSwipePerMonth">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Minimum loan amount</label>
+		<input type="number" name="historyMonth" ng-model="criteria.criteriaList.minimumLoanAmount">
+	</md-input-container>
+
+	<div layout="row" layout-align="center center"> 
+		<md-button class="md-primary md-raised ph-50" ng-click="criteria.addFilter(criteria.criteriaList)" ng-disabled="criteria.loading">
+			save criteria
+			<md-progress-circular class="md-accent progress-btn" md-diameter="35" ng-if="criteria.loading"></md-progress-circular>
+		</md-button>
+	</div>
+</div>

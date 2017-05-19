@@ -1,0 +1,128 @@
+<div layout="column" layout-margin id="borrower-profile">
+	<h2 class="fw-400">{{profile.custCode}}</h2>
+
+	<md-content class="md-whiteframe-2dp pb-20 ph-20  brad-3" layout="column">
+		<h2 class="fw-300">Basic Info</h2>
+
+		<div layout="row" layout-wrap layout-align="space-between start" layout-margin>
+			<div flex="30">
+				Name: <strong>{{profile.profileData.borrower.nameOfProprietor}}</strong>
+			</div>
+			<div flex="30">
+				Name of Shop: <strong>{{profile.profileData.borrower.nameOfShop}}</strong>
+			</div>
+			<div flex="30">
+				Type of Constitution: <strong>{{profile.profileData.borrower.typeOfConstitution}}</strong>
+			</div>
+
+			<div flex="30">
+				Email: <strong>{{profile.profileData.borrower.mailId}}</strong>
+			</div>
+			<div flex="30">
+				Mobile: <strong>{{profile.profileData.borrower.mobileNo}}</strong>
+			</div>
+			<div flex="30">
+				Name as per Bank: <strong>{{profile.profileData.borrower.nameOfBankHolder}}</strong>
+			</div>
+
+			<div flex="30">
+				Bank Name: <strong>{{profile.profileData.borrower.bankName}}</strong>
+			</div>
+			<div flex="30">
+				Bank Account No: <strong>{{profile.profileData.borrower.bankAcoountNo}}</strong>
+			</div>
+			<div flex="30">
+				IFSC Code: <strong>{{profile.profileData.borrower.ifscCode}}</strong>
+			</div>
+		</div>
+	</md-content>
+
+	<md-content class="md-whiteframe-2dp pb-20 ph-20  brad-3" layout="column">
+		<h2 class="fw-300">KYC Details</h2>
+
+		<div layout="row" layout-wrap layout-margin>
+			<h3 flex="100">Customer Photo/Selfie</h3>
+			<img ng-src="{{profile.imagePath + profile.profileData.applicant.selfie.path}}" class="kyc-image">
+		</div>
+
+		<div layout="row" layout-wrap layout-margin>
+			<h3 flex="100">Aadhar Details</h3>
+			<img ng-src="{{profile.imagePath + profile.profileData.applicant.aadhar.pathOfAadharCard}}" class="kyc-image" flex>
+
+			<div flex="column" layout-margin>
+				<div>Aadhar no: <strong>{{profile.profileData.applicant.aadhar.aadharNo}}</strong></div>
+				<div>Name: <strong>{{profile.profileData.applicant.aadhar.name}}</strong></div>
+				<div>Birth Year: <strong>{{profile.profileData.applicant.aadhar.dateOfYear}}</strong></div>
+				<div>Gender: <strong>{{profile.profileData.applicant.aadhar.gender}}</strong></div>
+			</div>
+		</div>
+
+		<div layout="row" layout-wrap layout-margin>
+			<h3 flex="100">PAN Details</h3>
+			<img ng-src="{{profile.imagePath + profile.profileData.applicant.pancard.pathOfPancard}}" class="kyc-image" flex>
+
+			<div flex="column" layout-margin>
+				<div>PAN No: <strong>{{profile.profileData.applicant.pancard.panNo}}</strong></div>
+				<div>Name: <strong>{{profile.profileData.applicant.pancard.name}}</strong></div>
+				<div>Father Name: <strong>{{profile.profileData.applicant.pancard.fatherName}}</strong></div>
+				<div>Birth Date: <strong>{{profile.profileData.applicant.pancard.dateOfBirth}}</strong></div>
+				
+			</div>
+		</div>
+	</md-content>
+
+	<md-content class="md-whiteframe-2dp pb-20 ph-20  brad-3" layout="column">
+		<h2 class="fw-300">Loan Details</h2>
+
+		<md-table-container>
+		    <table md-table>
+		      <thead md-head >
+		        <tr md-row >
+		          <th md-column><span>Customer Code</span></th>
+		          <th md-column><span>Loan Start Date</span></th>
+		          <th md-column><span>Principle Amount</span></th>
+		          <th md-column><span>Transferable Amount</span></th>
+		          <th md-column><span>Tenure</span></th>
+		          <th md-column><span>Interest</span></th>
+		          <th md-column><span>Processing Fee</span></th>
+		          <th md-column><span>Next Payment Date</span></th>
+		          <th md-column>Actions</th>
+		        </tr>
+		      </thead>
+		      <tbody md-body>
+		        <tr md-row ng-repeat-start="request in profile.profileData.loans" ng-init="request.showRepayments = false">
+		          <td md-cell>{{request.custCode}}</td>
+		          <td md-cell>{{request.loanOriginationDate | date: 'dd-MM-yyyy'}}</td>
+		          <td md-cell>{{request.principalAmount}}</td>
+		          <td md-cell>{{request.transferAmount}}</td>
+		          <td md-cell>{{request.tenure}}</td>
+		          <td md-cell>{{request.interestCharge}}</td>
+		          <td md-cell>{{request.processingFee}}</td>
+		          <td md-cell>{{request.nextPaymentDate | date: 'dd-MM-yyyy'}}</td>
+		          <td md-cell> 
+		            <md-button class="md-icon-button" ng-click="request.showRepayments = !request.showRepayments">
+		              <md-tooltip>Repayments</md-tooltip>
+		              <md-icon class="material-icons">more_vert</md-icon>
+		            </md-button>
+		          </td>
+		        </tr>
+
+		        <tr ng-repeat-end md-row ng-show="request.showRepayments == true">
+		        	<td md-cell colspan="9">
+		        		<table md-table>
+		        			<tr md-row>
+		        				<td md-cell>1</td>
+		        				<td md-cell>2</td>
+		        			</tr>
+		        		</table>
+		        	</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		</md-table-container>
+	</md-content>
+</div>
+
+<!-- <h1>Borrower Profile</h1> -->
+
+<!-- {{profile.profileData}} -->

@@ -426,7 +426,11 @@ $border-style: 1px solid rgba(0, 0, 0, 0.12);
 
 
 .font-white{
-  color: #fff !important;
+  color: $color-white !important;
+}
+
+.bg-white{
+  background: $color-white !important;
 }
 
 .bg-denger {
@@ -437,3 +441,4 @@ $border-style: 1px solid rgba(0, 0, 0, 0.12);
 .bg-success {
   background: $color-bg-success;  
 }
+

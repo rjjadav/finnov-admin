@@ -13,7 +13,8 @@
       defaultRedirect :{
         'Finnov' : 'app.main_admin.list',
         'lender': 'app.main_lender.dashboard',
-        'partner': 'app.main_loans.loans-request.approved'
+        'partner': 'app.main_loans.loans-request.approved',
+        'partner_admin': 'app.main_borrowers'
       }
     };
 

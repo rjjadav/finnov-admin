@@ -4,12 +4,15 @@
     <span flex>
       <strong>Date</strong>
     </span>
-    <span flex>
-      <strong>Partner Id</strong>
-    </span>
+    
     <span flex>
       <strong>Job Id</strong>
     </span>
+
+    <span flex>
+      <strong>Job Type</strong>
+    </span>
+
     <span flex>
       <!-- <strong>Action</strong> -->
     </span>
@@ -19,12 +22,15 @@
     <span flex class="pl-16">
       {{request.createdOn | date: 'dd-MMM-yyyy'}}
     </span>
-    <span flex>
-      {{request.partnerId}}
-    </span>
+
     <span flex>
       {{request.id}}
     </span>
+
+    <span flex>
+      {{request.jobType}}
+    </span>
+
     <span flex layout="row" layout-align="end center">
       <md-icon class="material-icons md-primary mh-70" ng-if="request.status== 'COMPLETED'">
         check_circle

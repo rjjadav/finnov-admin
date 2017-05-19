@@ -46,7 +46,7 @@
       <md-divider></md-divider>
     </md-list-item>
   </md-list> -->
-  <md-table-container>
+  <md-table-container ng-if="loans.activeloans.length > 0">
     <table md-table>
       <thead md-head >
         <tr md-row >
@@ -58,6 +58,8 @@
           <th md-column><span>Interest</span></th>
           <th md-column><span>Processing Fee</span></th>
           <th md-column><span>Next Payment Date</span></th>
+          <th md-column><span>Total Payment</span></th>
+          <th md-column>Actions</th>
         </tr>
       </thead>
       <tbody md-body>
@@ -70,9 +72,20 @@
           <td md-cell>{{request.interestCharge}}</td>
           <td md-cell>{{request.processingFee}}</td>
           <td md-cell>{{request.nextPaymentDate | date: 'dd-MM-yyyy'}}</td>
+          <td md-cell>{{loans.getTotalRepayments(request.repayments)}}</td>
+          <td md-cell> 
+            <md-button class="md-icon-button" ui-sref="app.main_lender.details.borrower({custCode: request.custCode})" target="_blank">
+              <md-tooltip>View Profile</md-tooltip>
+              <md-icon class="material-icons">more_vert</md-icon>
+            </md-button>
+          </td>
         </tr>
       </tbody>
     </table>
   </md-table-container>
+
+  <div class="m-16 md-headline" ng-if="loans.activeloans.length == 0">
+    No active loans available at this moment
+  </div>
 </div>
 

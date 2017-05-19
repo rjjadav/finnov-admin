@@ -4,21 +4,21 @@
 		<span flex="50">Average Transactions</span>
 		<select ng-model="filters.filtersObj.averageTxns.condition">
 			<option value="=">=</option>
-			<option value="<"><</option>
-			<option value=">">></option>
+			<option value="<">&lt;</option>
+			<option value=">">&gt;</option>
 		</select>
 		<input type="text" ng-model="filters.filtersObj.averageTxns.value"/>
 	</div>
 
-	<div layout="row" layout-align="start center" layout-margin>
+	<!-- <div layout="row" layout-align="start center" layout-margin>
 		<span flex="50">Month1 Transactions</span>
 		<select ng-model="filters.filtersObj.month1Txns.condition">
 			<option value="=">=</option>
-			<option value="<"><</option>
-			<option value=">">></option>
+			<option value="<">&lt;</option>
+			<option value=">">&gt;</option>
 		</select>
 		<input type="text" ng-model="filters.filtersObj.month1Txns.value"/>
-	</div>
+	</div> -->
 
 	<div layout="row" layout-align="end-center">
 		<md-button class="m-0" ng-click="filters.close()">cancel</md-button>

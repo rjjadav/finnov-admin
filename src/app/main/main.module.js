@@ -10,6 +10,7 @@
     'app.main.lender',
     'app.main.loans',
     'app.main.reports',
+    'app.main.partner-backend',
   ])
     .config(config);
 

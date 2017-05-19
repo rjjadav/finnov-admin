@@ -18,10 +18,10 @@
         <span flex>{{lender.createdOn | date: 'dd-MMM-yyyy'}}</span>
         <span flex="10" layout="row">
 
-          <md-button class="md-icon-button" ng-click="list.addPartner($event, lender.id)">
+          <!-- <md-button class="md-icon-button" ng-click="list.addPartner($event, lender.id)">
             <md-tooltip>Add Partners</md-tooltip>
             <md-icon class="material-icons">add_circle_outline</md-icon>
-          </md-button>
+          </md-button> -->
 
           <md-button class="md-icon-button" ui-sref="app.main_admin.lender-details.partners({id: lender.id})">
             <md-tooltip>Add Details</md-tooltip>

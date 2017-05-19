@@ -3,58 +3,7 @@
   <md-progress-linear md-mode="indeterminate" class="w-200 mt-10 md-accent"></md-progress-linear>  
 </div>
 
-<div ng-if="applications.applicationsList" id="loan-request-list">
-<!--   <md-list>
-    <md-list-item>
-      <span flex>
-        <strong>Customer code</strong>
-      </span>
-      <span flex>
-        <strong>Principle Amount</strong>
-      </span>
-      <span flex>
-        <strong>Transferable Amount</strong>
-      </span>
-      <span flex>
-        <strong>Tenure</strong>
-      </span>
-      <span flex>
-        <strong>Processing Fee</strong>
-      </span>
-      <span flex>
-        <strong>Interest</strong>
-      </span>
-      <span flex></span>
-    </md-list-item>
-    <md-divider></md-divider>
-    <md-list-item ng-repeat="request in applications.applicationsList" class="ph-16">
-      <span flex>
-        {{request.custCode}}
-      </span>
-      <span flex>
-        {{request.principalAmount}}
-      </span>
-      <span flex>
-        {{request.transferAmount}}
-      </span>
-      <span flex>
-        {{request.tenure}}
-      </span>
-      <span flex>
-        {{request.processingFee}}
-      </span>
-      <span flex>
-        {{request.interest}}
-      </span>
-      <span flex>
-        <md-icon class="material-icons md-accent" ng-if="request.status == 'active'">done</md-icon>
-        <md-button class="md-primary" ng-click="applications.createLoans(request)" ng-if="request.status == 'Application'">Activate Loan</md-button>
-      </span>
-      <md-divider></md-divider>
-    </md-list-item>
-  </md-list> -->
-
-<md-table-container ng-if="applications.applicationsList.length > 0">
+<div ng-if="applications.applicationsList" id="loan-request-list"><md-table-container ng-if="applications.applicationsList.length > 0">
   <table md-table>
     <thead md-head >
       <tr md-row >
@@ -120,9 +69,9 @@
     </tbody>
   </table>
 </md-table-container>
-
-<h3 ng-if="applications.applicationsList.length == 0">
-  No Loan Applications Found.
-</h3>
-
 </div>
+
+<div class="m-16 md-headline" ng-if="applications.applicationsList.length == 0">
+  Loan application list is not Available
+</div>
+

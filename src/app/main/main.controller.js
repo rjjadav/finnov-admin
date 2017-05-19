@@ -27,7 +27,7 @@
 
 
     function getAllPartners(){
-      data.get(api.getAllPartner, null, true)
+      data.get(api.getAllPartnerLender, null, true)
       .then(function (response) {
         console.log(response);
         if(response.data.partners){

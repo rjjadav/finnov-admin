@@ -1,4 +1,4 @@
-<md-content id="loan-request">
+<md-content id="loan-request" class="bg-white">
   <form ng-cloak name="infoForm">
     <div layout="row" layout-margin>
       <div layout="column" flex layout-align="center center" class="file-upload-container brad-15" ng-model="loanReq.selectedFile" ngf-drop accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
@@ -26,7 +26,7 @@
                   cloud_upload
                 </md-icon>
               </md-button>
-              <md-button class="md-icon-button md-accent">
+              <md-button class="md-icon-button md-accent" ng-click="loanReq.removeFile()" ng-if="!loanReq.progress > 0">
                 <md-icon class="material-icons">close</md-icon>
               </md-button>
               <md-icon class="material-icons md-primary mh-30" ng-if="loanReq.requestList">

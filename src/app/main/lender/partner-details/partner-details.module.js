@@ -122,6 +122,34 @@
           role: 'lender',
           tabIndex: 5
         }
+      })
+      .state('app.main_lender.details.loan-criteria',{
+        url: '/loan-criteria',
+        views: {
+          'criteriaView@app.main_lender.details': {
+            templateUrl: 'app/main/lender/partner-details/loan-criteria/loan-criteria.html',
+            controller: 'LoanCriteriaController',//'RepaymentsController',
+            controllerAs: 'criteria'
+          }
+        },
+        data:{
+          role: 'lender',
+          tabIndex: 6
+        }
+      })
+
+      .state('app.main_lender.details.borrower',{
+        url: '/borrower/:custCode',
+        views: {
+          'content@app': {
+            templateUrl: 'app/main/lender/partner-details/borrower-profile/borrower-profile.html',
+            controller: 'BorrowerProfileController',//'RepaymentsController',
+            controllerAs: 'profile'
+          }
+        },
+        data:{
+          role: 'lender',
+        }
       });
   }
 })();

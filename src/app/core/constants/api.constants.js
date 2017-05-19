@@ -22,12 +22,16 @@
 		}
 
 		var config={
+			imagePath			: url[env].backend,
+
 			login 				: url[env].backend + '/oauth/token',
+			logout 				: url[env].backend + '/common/revoke-token',
+			getUserType      	: url[env].backend + '/common/getUserType',
 
 			createLenderUser	: url[env].backend + '/admin/createLenderUser',
 			getAllLenders 		: url[env].backend + '/admin/getAllLenders',
 			addLender 			: url[env].backend + '/admin/addLender',
-			getUserType      	: url[env].backend + '/admin/getUserType',
+			
 			createPartner 		: url[env].backend + '/admin/createPartner',
 			getAllPartner 		: url[env].backend + '/admin/getAllPartner',
 			attachPartner 		: url[env].backend + '/admin/attachPartner',
@@ -36,7 +40,7 @@
 			createPartnerLogin 	: url[env].backend + '/admin/createPartnerUser',
 
 			// createPartner 		: url[env].backend + '/lender/createPartner',
-			// getAllPartner 		: url[env].backend + '/lender/getAllPartner',
+			getAllPartnerLender	: url[env].backend + '/lender/getAllPartner',
 			makePartnerActive 	: url[env].backend + '/lender/makePartnerActive',
 			bulkUpload 			: url[env].backend + '/lender/bulkUpload',
 			getNewLoanRequest 	: url[env].backend + '/lender/getNewLoanRequests',
@@ -52,6 +56,9 @@
 			getPartnerDetail 	: url[env].backend + '/lender/getPartnerDetail',
 			getKycDetail 		: url[env].backend + '/lender/getKycDetail',
 			editKycDetail 		: url[env].backend + '/lender/editKycDetail',
+			getBorrowerDetail 	: url[env].backend + '/lender/getBorrowerDetail',
+			addFilter 			: url[env].backend + '/lender/addFilter',
+			getFilter 			: url[env].backend + '/lender/getFilter',
 
 			getApprovedRequest 	: url[env].backend + '/partner/getApprovedRequest',
 			getRejectedRequest 	: url[env].backend + '/partner/getRejectedRequest',
@@ -59,6 +66,8 @@
 			getBorroweByCustCode:   url[env].backend + '/partner/getBorroweByCustCode',
 			uploadKyc:              url[env].backend + '/partner/uploadKyc',
 			createLoanApplication:  url[env].backend + '/partner/createLoanApplication',
+			getBorrowers: 			url[env].backend + '/partner/getBorrowers'
+
 		}
 		return config;
 	}

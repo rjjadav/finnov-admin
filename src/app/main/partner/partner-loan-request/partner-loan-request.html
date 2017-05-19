@@ -1,14 +1,18 @@
-<div layout="column" layout-margin>
-  <h1>Loan Applications</h1>
+<div layout="column" id="partner-loan-request">
+  <div class="h-120"  md-colors="{background: 'accent-300'}">
+    <h2 class="fw-400 ml-20 font-white">Loan Applications</h2>
+  </div>
+  
 
-  <md-content class="md-whiteframe-2dp pb-20 brad-3" layout="column">
+
+  <md-content class="md-whiteframe-2dp brad-3 pb-20 mh-20 mb-20 content-overlay tab-content bg-white" layout="column">
     <md-tabs md-selected="plr.currentTab" md-dynamic-height md-border-bottom>
       <md-tab label="Approved" ui-sref="app.main_loans.loans-request.approved">
-        <md-content class="pv-20" ui-view="approvedLoansView">
+        <md-content class="bg-white" ui-view="approvedLoansView">
         </md-content>
       </md-tab>
       <md-tab label="Rejected" ui-sref="app.main_loans.loans-request.rejected">
-        <md-content class="md-padding" ui-view="rejectedLoansView">
+        <md-content class="bg-white" ui-view="rejectedLoansView">
         </md-content>
       </md-tab>
     </md-tabs>

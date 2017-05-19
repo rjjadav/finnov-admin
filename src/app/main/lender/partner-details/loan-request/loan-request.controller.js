@@ -13,6 +13,7 @@
     console.log($stateParams);
     var loanReq = this;
     loanReq.uploadFile = uploadFile;
+    loanReq.removeFile = removeFile;
 
     loanReq.progress = 0;
     loanReq.loading = false;
@@ -38,6 +39,11 @@
           // console.log('progress: ' + progressPercentage + '% ');
         })
         .catch();
+    }
+
+
+    function removeFile(){
+      loanReq.selectedFile = null;
     }
   }
 })();

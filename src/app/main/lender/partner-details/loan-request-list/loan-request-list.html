@@ -1,8 +1,8 @@
 <div ng-if="list.loanRequestList.length > 0" id="loan-request-list">
 
-<div layout="row" layout-align="end center">
+<!-- <div layout="row" layout-align="end center">
   <md-button class="md-accent b" ng-click="list.openFilters($event)">Apply Filters</md-button>
-</div>
+</div> -->
 
 <md-table-container>
   <table md-table>
@@ -19,10 +19,13 @@
         <th md-column><span>Month3 Unique Txns</span></th>
         <th md-column><span>Month4 Txns</span></th>
         <th md-column><span>Month4 Unique Txns</span></th>
+        <th md-column><span>Active Loans</span></th>
+        <th md-column><span>Status</span></th>
       </tr>
     </thead>
     <tbody md-body>
       <tr md-row ng-repeat="a in list.loanRequestList" ng-class="{'bg-denger': a.status == 'Rejected', 'bg-success': a.status == 'Approved'}">
+        <td md-cell>{{a.custCode}}</td>
         <td md-cell>{{a.averageMonTxn}}</td>
         <td md-cell>{{a.averageMonTxnAmount}}</td>
         <td md-cell>{{a.month1TxnCount}}</td>
@@ -33,22 +36,25 @@
         <td md-cell>{{a.month3UnqTxn}}</td>
         <td md-cell>{{a.month4TxnCount}}</td>
         <td md-cell>{{a.month4UnqTxn}}</td>
+        <td md-cell>{{(a.alreadyActiveLoan ? true : false)}}</td>
         <td md-cell>{{a.status}}</td>
       </tr>
     </tbody>
   </table>
 </md-table-container>
 
-<div layout="row" layout-align="center center">
-  <md-button class="md-raised md-accent ph-50 pv-10 font-white fs-16" ng-click="list.updateList(list.loanRequestList)">
+<div layout="row" layout-align="center center" layout-margin>
+  <md-button class="md-raised md-primary ph-50 font-white fs-16" ng-click="list.updateList(list.loanRequestList)" ng-disabled="list.loading">
     Update List
+
+    <md-progress-circular class="md-accent progress-btn" md-diameter="35" ng-if="list.loading"></md-progress-circular>
   </md-button>
 </div>
 </div>
 
-<h3 ng-if="list.loanRequestList.length == 0">
-  No Loan Request List Available.
-</h3>
+<div class="m-16  md-headline" ng-if="list.loanRequestList.length == 0">
+  Loan request list is not Available
+</div>
 
 <div layout="column" layout-align="center center" ng-if="!list.loanRequestList" class="pt-20">
   <span>Fetching Loan Requests...</span>
