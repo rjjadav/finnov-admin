@@ -4,19 +4,14 @@
 	angular.module('app.main.partner-backend')
 	.controller('PartnerBorrowersController',PartnerBorrowersController);
 
-	PartnerBorrowersController.$inject = ['$mdDialog','data','api'];
+	PartnerBorrowersController.$inject = ['$scope','$mdDialog','data','api'];
 
-	function PartnerBorrowersController($mdDialog, data, api){
+	function PartnerBorrowersController($scope, $mdDialog, data, api){
 		var borrowers = this;
 
 		borrowers.getBorrowers = getBorrowers;
 		borrowers.uploadDocumentDialog = uploadDocumentDialog;
-		borrowers.start = start;
-		borrowers.processURLfromQR = start;
-
-		borrowers.borrowersList = undefined;
-		borrowers.cameraRequested = false;
-
+		
 		borrowers.getBorrowers();
 		function getBorrowers(){
 			data.get(api.getBorrowers, null, true)
@@ -44,15 +39,13 @@
 			});
 		}
 
-		function start() {
-			console.log('start');
-			borrowers.cameraRequested = true;
+		$scope.start = function() {
+			$scope.cameraRequested = true;
 		}
 
-		function processURLfromQR(url) {
-			console.log("processURLfromQR", url);
-			borrowers.url = url;
-			borrowers.cameraRequested = false;
+		$scope.processURLfromQR = function (url) {
+			$scope.url = url;
+			$scope.cameraRequested = false;
 		}
 	}
 })();

@@ -39,11 +39,11 @@
 
 
     <h2>bc-qr-reader demo</h2>
-    <button ng-click="borrowers.start()">Activate scanner</button>
-    <p ng-hide="borrowers.cameraRequested && !borrowers.cameraIsOn">Your browser should ask for permission to use the camera.</p>
+    <button ng-click="start()">Activate scanner</button>
+    <p ng-hide="cameraRequested && !cameraIsOn">Your browser should ask for permission to use the camera.</p>
     <div>
-      <bc-qr-reader active="borrowers.cameraRequested" on-result="borrowers.processURLfromQR" on-error="borrowers.onError" camera-status="borrowers.cameraIsOn" width="200px" height="200px"></bc-qr-reader>
+      <bc-qr-reader active="cameraRequested" on-result="processURLfromQR" on-error="onError" camera-status="cameraIsOn" width="200px" height="200px"></bc-qr-reader>
     </div>
     <p ng-show="url">QR code detected!</p>
-    <p><b>{{ borrowers.url }}</b></p>
+    <p><b>{{ url }}</b></p>
   </md-content>
