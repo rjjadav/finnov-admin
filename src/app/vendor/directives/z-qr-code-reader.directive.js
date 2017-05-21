@@ -3802,9 +3802,11 @@ function QRCodeDataBlockReader(blocks,  version,  numErrorCorrectionCode)
 		return output;
 	});
 }
-;var bcQrReader;
+;
+angular.module('bcQrReader', []).directive('bcQrReader', bcQrReader);
 
-bcQrReader = function($timeout) {
+/** @ngInject */
+function bcQrReader($timeout) {
   return {
     restrict: "E",
     replace: 'true',
@@ -3854,7 +3856,5 @@ bcQrReader = function($timeout) {
     }
   };
 };
-
-angular.module('bcQrReader', []).directive('bcQrReader', bcQrReader);
 
 })()
