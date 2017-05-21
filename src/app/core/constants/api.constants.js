@@ -10,7 +10,7 @@
 	api.$inject = [];
 
 	function api(){
-		var env = 'uat';
+		var env = 'prod';
 
 		var url={
 			dev:{
@@ -18,6 +18,9 @@
 			},
 			uat:{
 				backend: 'http://45.56.97.181:8080/Finnov'
+			},
+			prod:{
+				backend: 'https://45.56.97.181:8443/Finnov'
 			}
 		}
 
