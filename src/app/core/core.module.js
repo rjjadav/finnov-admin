@@ -18,5 +18,7 @@
     'mdDataTable',
     'md.data.table',
     'uiCropper',
+    'webcam',
+    'bcQrReader'
   ]);
 })();

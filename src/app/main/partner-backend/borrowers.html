@@ -26,7 +26,7 @@
             <td md-cell>{{a.mobileNo}}</td>
             <td md-cell>{{a.mailId}}</td>
             <td md-cell>
-              <md-button class="md-icon-button">
+              <md-button class="md-icon-button" ng-click="borrowers.uploadDocumentDialog($event)">
                 <md-icon class="material-icons">
                   more_vert
                 </md-icon>
@@ -36,4 +36,14 @@
         </tbody>
       </table>
     </md-table-container>
+
+
+    <h2>bc-qr-reader demo</h2>
+    <button ng-click="borrowers.start()">Activate scanner</button>
+    <p ng-hide="borrowers.cameraRequested && !borrowers.cameraIsOn">Your browser should ask for permission to use the camera.</p>
+    <div>
+      <bc-qr-reader active="borrowers.cameraRequested" on-result="borrowers.processURLfromQR" on-error="borrowers.onError" camera-status="borrowers.cameraIsOn" width="200px" height="200px"></bc-qr-reader>
+    </div>
+    <p ng-show="url">QR code detected!</p>
+    <p><b>{{ url }}</b></p>
   </md-content>
