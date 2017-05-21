@@ -45,5 +45,5 @@
       <bc-qr-reader active="borrowers.cameraRequested" on-result="borrowers.processURLfromQR" on-error="borrowers.onError" camera-status="borrowers.cameraIsOn" width="200px" height="200px"></bc-qr-reader>
     </div>
     <p ng-show="url">QR code detected!</p>
-    <p><b>{{ url }}</b></p>
+    <p><b>{{ borrowers.url }}</b></p>
   </md-content>

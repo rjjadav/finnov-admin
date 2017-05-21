@@ -15,6 +15,7 @@
 		borrowers.processURLfromQR = start;
 
 		borrowers.borrowersList = undefined;
+		borrowers.cameraRequested = false;
 
 		borrowers.getBorrowers();
 		function getBorrowers(){
@@ -44,10 +45,12 @@
 		}
 
 		function start() {
+			console.log('start');
 			borrowers.cameraRequested = true;
 		}
 
 		function processURLfromQR(url) {
+			console.log("processURLfromQR", url);
 			borrowers.url = url;
 			borrowers.cameraRequested = false;
 		}

@@ -10,7 +10,7 @@
 	api.$inject = [];
 
 	function api(){
-		var env = 'prod';
+		var env = 'uat';
 
 		var url={
 			dev:{
