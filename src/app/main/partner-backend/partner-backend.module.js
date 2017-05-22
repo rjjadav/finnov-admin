@@ -13,7 +13,7 @@
 	          'content@app':{
 	            templateUrl: 'app/main/partner-backend/borrowers.html',
 	            controller: 'PartnerBorrowersController',
-	            controllerAs: 'borrowers'
+	            // controllerAs: 'borrowers'
 	          }
 	        },
 	        data:{

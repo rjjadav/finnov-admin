@@ -19,6 +19,6 @@
     'md.data.table',
     'uiCropper',
     'webcam',
-    'bcQrReader'
+    'bcQrReader',
   ]);
 })();
