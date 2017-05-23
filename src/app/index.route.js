@@ -45,6 +45,7 @@
       });
 
     $urlRouterProvider.otherwise('/auth/login');
+    // $urlRouterProvider.otherwise('/borrower/login');
   }
 
 })();

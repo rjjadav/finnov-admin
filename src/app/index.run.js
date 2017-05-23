@@ -21,18 +21,18 @@
     //
     //   });
 
-    $rootScope.$on('$stateChangeStart', function (event, toState) {
-      console.log(toState);
-      if($rootScope.role && toState.data && toState.data.role !== $rootScope.role){
-        event.preventDefault();
-        $state.go(CONST.defaultRedirect[$rootScope.role]);
-      }
+    // $rootScope.$on('$stateChangeStart', function (event, toState) {
+    //   console.log(toState);
+    //   if($rootScope.role && toState.data && toState.data.role !== $rootScope.role){
+    //     event.preventDefault();
+    //     $state.go(CONST.defaultRedirect[$rootScope.role]);
+    //   }
 
-      if($rootScope.role && toState.name === 'app.main_auth.login'){
-        event.preventDefault();
-        $state.go(CONST.defaultRedirect[$rootScope.role]);
-      }
-    })
+    //   if($rootScope.role && toState.name === 'app.main_auth.login'){
+    //     event.preventDefault();
+    //     $state.go(CONST.defaultRedirect[$rootScope.role]);
+    //   }
+    // })
   }
 
 })();

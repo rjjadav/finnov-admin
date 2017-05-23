@@ -30,6 +30,8 @@
 			login 				: url[env].backend + '/oauth/token',
 			logout 				: url[env].backend + '/common/revoke-token',
 			getUserType      	: url[env].backend + '/common/getUserType',
+			genrateQrImage 		: url[env].backend + '/common/genrateQrImage',
+
 
 			createLenderUser	: url[env].backend + '/admin/createLenderUser',
 			getAllLenders 		: url[env].backend + '/admin/getAllLenders',
@@ -63,14 +65,20 @@
 			addFilter 			: url[env].backend + '/lender/addFilter',
 			getFilter 			: url[env].backend + '/lender/getFilter',
 
-			getApprovedRequest 	: url[env].backend + '/partner/getApprovedRequest',
-			getRejectedRequest 	: url[env].backend + '/partner/getRejectedRequest',
-			getApplicantByCustCode: url[env].backend + '/partner/getApplicantByCustCode',
-			getBorroweByCustCode:   url[env].backend + '/partner/getBorroweByCustCode',
-			uploadKyc:              url[env].backend + '/partner/uploadKyc',
-			createLoanApplication:  url[env].backend + '/partner/createLoanApplication',
-			getBorrowers: 			url[env].backend + '/partner/getBorrowers'
+			getApprovedRequest 		: url[env].backend + '/partner/getApprovedRequest',
+			getRejectedRequest 		: url[env].backend + '/partner/getRejectedRequest',
+			getApplicantByCustCode	: url[env].backend + '/partner/getApplicantByCustCode',
+			getBorroweByCustCode 	: url[env].backend + '/partner/getBorroweByCustCode',
+			uploadKyc 				: url[env].backend + '/partner/uploadKyc',
+			createLoanApplication	: url[env].backend + '/partner/createLoanApplication',
+			getBorrowers			: url[env].backend + '/partner/getBorrowers',
+			uploadBankStatement 	: url[env].backend + '/partner/uploadBankStatement',
 
+			createAccount 			: url[env].backend + '/borrower/createAccount',
+			addSelfie				: url[env].backend + '/borrower/addSelfie',
+			addPancard 				: url[env].backend + '/borrower/addPancard',
+			addAadhar 				: url[env].backend + '/borrower/addAadhar',
+			addBankStatement 		: url[env].backend + '/borrower/addBankStatement',
 		}
 		return config;
 	}

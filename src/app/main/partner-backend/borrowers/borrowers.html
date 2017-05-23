@@ -6,7 +6,7 @@
 
 
   <md-content class="md-whiteframe-2dp brad-3 pb-20 mh-20 mb-20 content-overlay tab-content bg-white" layout="column">
-  	<!-- <md-table-container>
+  	<md-table-container>
       <table md-table>
         <thead md-head >
           <tr md-row >
@@ -26,7 +26,7 @@
             <td md-cell>{{a.mobileNo}}</td>
             <td md-cell>{{a.mailId}}</td>
             <td md-cell>
-              <md-button class="md-icon-button" ng-click="borrowers.uploadDocumentDialog($event)">
+              <md-button class="md-icon-button" ng-click="borrowers.uploadDocumentDialog($event, a)">
                 <md-icon class="material-icons">
                   more_vert
                 </md-icon>
@@ -35,15 +35,19 @@
           </tr>
         </tbody>
       </table>
-    </md-table-container> -->
+    </md-table-container>
 
+    
+    <!-- <div ng-if="borrowers.qrImage">
+      <img src="{{borrowers.qrImage}}">
+    </div>
 
-    <h2>bc-qr-reader demo</h2>
+    <h2>bc-qr-reader demo {{borrowers.qrImage}}</h2>
     <button ng-click="start()">Activate scanner</button>
     <p ng-hide="cameraRequested && !cameraIsOn">Your browser should ask for permission to use the camera.</p>
     <div>
       <bc-qr-reader active="cameraRequested" on-result="processURLfromQR" on-error="onError" camera-status="cameraIsOn" width="200px" height="200px"></bc-qr-reader>
     </div>
     <p ng-show="url">QR code detected!</p>
-    <p><b>{{ url }}</b></p>
+    <p><b>{{ url }}</b></p> -->
   </md-content>

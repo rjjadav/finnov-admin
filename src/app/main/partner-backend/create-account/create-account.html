@@ -1,0 +1,29 @@
+<div layout="column" id="partner-loan-request">
+  <div class="h-120"  md-colors="{background: 'accent-300'}">
+    <h2 class="fw-400 ml-20 font-white">Create Account</h2>
+  </div>
+  
+
+
+  <md-content class="md-whiteframe-2dp brad-3 pt-30 p-20 mb-20 content-overlay tab-content bg-white" layout="column" layout-margin>
+  	<md-input-container>
+  		<label>Mobile Number</label>
+  		<input type="text" ng-model="account.cred.mobileNo">
+  	</md-input-container>
+
+  	<!-- <md-input-container>
+  		<label>Mobile Number</label>
+  		<input type="text" ng-model="account.cred.mobileNo">
+  	</md-input-container> -->
+
+  	<md-input-container>
+  		<label>Customer Code</label>
+  		<input type="text" ng-model="account.cred.custCode">
+  	</md-input-container>
+
+  	<div layout="row" layout-align="center center">
+  		<md-button class="md-raised md-primary ph-50" ng-click="account.createAccount(account.cred)">
+  			Create Account
+  		</md-button>
+  	</div>
+  </md-content>

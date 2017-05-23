@@ -1,0 +1,70 @@
+<h1>Upload</h1>
+
+<div layout="column" layout-align="start start" flex="noshrink" ng-if="kyc.selfieUploaded == false">
+      <div layout="row" class="full-width">
+        <md-button class="md-raised md-accent" flex="30" ngf-select="kyc.previewSelfie(kyc.docs.selfie)" ng-model="kyc.docs.selfie">Upload Selfie</md-button>
+        <span flex>{{kyc.docs.selfie.name}}</span>
+      </div>
+      <div layout="column">
+        <!-- <label><b>Selected Image</b></label>
+        <span ng-if="!kyc.selfiePreviewImage">No Image Selected</span> -->
+        <img ng-src="{{kyc.selfiePreviewImage}}" style="height: 200px; width: 300px;" ng-if="kyc.selfiePreviewImage">
+      </div>
+      <md-button class="md-raised md-primary" ng-click="kyc.uploadSelfie(kyc.docs.selfie)">
+      	Upload
+      </md-button>
+    </div>
+
+    <div layout="column" layout-align="start start" flex="noshrink" ng-if="kyc.selfieUploaded == true && kyc.aadharUploaded == false">
+      <div layout="row" class="full-width">
+
+        <md-button flex="30" class="md-raised md-accent" ngf-select="kyc.previewAadhar(kyc.docs.aadhar)" ng-model="kyc.docs.aadhar" ngf-pattern="'image/*'" ngf-accept="'image/*'">
+          Upload Aadhar
+        </md-button>
+        <span flex>{{kyc.docs.aadhar.name}}</span>
+      </div>
+
+      <div layout="row" class="full-width" ng-if="kyc.aadharPreviewImage">
+        <div flex layout="column" layout-margin>
+          <span>Cropped Image :</span>
+          <div>
+            <img ng-src="{{kyc.aadharPreviewImage}}" class="h-200 w-300"/>
+          </div>
+
+      		
+        </div>        
+
+        <!-- <pre>
+          {{kyc.aadharCroppedImage}}
+        </pre> -->
+      </div>
+      <md-button class="md-raised md-primary" ng-click="kyc.uploadAadhar(kyc.docs.aadhar)">
+            Upload
+          </md-button>
+    </div>
+
+    <div layout="column" layout-align="start start" flex="noshrink" ng-if="kyc.aadharUploaded == true && kyc.panUploaded == false">
+      <div layout="row" class="full-width">
+        <md-button class="md-raised md-accent" flex="30" ngf-select="kyc.previewPancard(kyc.docs.pancard)" ng-model="kyc.docs.pancard" >
+          Upload Pancard
+        </md-button>
+        <span flex>{{kyc.docs.pancard.name}}</span>
+      </div>
+
+
+      <div layout="row" class="full-width" ng-if="kyc.pancardPreviewImage">
+        <div flex layout="column" layout-margin>
+          <span>Cropped Image :</span>
+          <div>
+            <img ng-src="{{kyc.pancardPreviewImage}}" class="h-200 w-300"/>
+          </div>
+			<md-button class="md-raised md-primary" ng-click="kyc.uploadPan(kyc.docs.pancard)">
+				Upload
+			</md-button>
+        </div>        
+
+        <!-- <pre>
+          {{kyc.aadharCroppedImage}}
+        </pre> -->
+      </div>
+    </div>

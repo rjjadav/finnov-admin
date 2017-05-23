@@ -1,0 +1,36 @@
+<div id="borrower-login" layout="row" class="full-height" layout-align="center center">
+	<div class="md-whiteframe-2dp bg-white brad-2 p-16" flex="95" flex-gt-sm="30"  layout="column" layout-align="center center">
+		
+		<div class="logo md-accent-bg" flex="noshrink">
+			<span>F</span>
+			<!--<img src="assets/images/logo.png">-->
+		</div>
+		
+		<h3 class="fw-400 ml-8" flex="noshrink">Login</h3>
+
+		<form name="loginForm" layout="column" flex layout-fill layout-margin>
+			<md-input-container>
+				<label>Mobile Number</label>
+				<input type="text" name="email" ng-model="login.cred.username" required />
+				<div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$dirty || loginForm.email.$touched">
+					<div ng-message="required">Please enter Email. This is Required.</div>
+					<div ng-message="pattern">Please enter valid Email address. This doesn't look like Email</div>
+				</div>
+			</md-input-container>
+
+			<md-input-container>
+				<label>Password</label>
+				<input type="password" ng-model="login.cred.password" name="password" required />
+				<div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$dirty || loginForm.password.$touched">
+					<div ng-message="required">Please enter Password. This is Required.</div>
+				</div>
+			</md-input-container>
+
+
+			<md-button class="md-raised md-primary" ng-click="login.adminLogin(login.cred)" ng-disabled="!loginForm.$valid || login.loading">
+				Login
+				<md-progress-circular class="md-accent progress-btn" md-diameter="20" ng-if="login.loading"></md-progress-circular>
+			</md-button>
+		</form>
+	</div>
+</div>

@@ -1,25 +1,51 @@
-<md-dialog aria-label="Upload Document">
+<md-dialog aria-label="Upload Document" flex="50">
 	<md-toolbar class="bg-white font-black">
 		<div class="md-toolbar-tools">
 			<h2>Upload Document</h2>
 			<span flex></span>
-			<md-button class="md-icon-button md-default" ng-click="cancel()">
+			<md-button class="md-icon-button md-default" ng-click="uploadDoc.cancel()">
 				<md-icon class="material-icons font-black">close</md-icon>
 			</md-button>
 			</div>
 	</md-toolbar>
-	<md-dialog-content>
-		<div class="md-dialog-content">
+	<md-dialog-content layout="column" layout-fill>
+		<div class="md-dialog-content" >
+			<div layout="column" flex layout-gt-sm="row">
+				<md-input-container flex>
+					<label>Select Bank</label>
+					<md-select ng-model="uploadDoc.selectedBank">
+					<!-- <md-option><em>None</em></md-option> -->
+						<md-option value="HDFC">HDFC</md-option>
+						<md-option value="ICICI">ICICI</md-option>
+						<md-option value="KOTAK MAHINDRA">KOTAK MAHINDRA</md-option>
+					</md-select>
+				</md-input-container>
 
+				<md-input-container flex>
+					<label>Select Bank Account Type</label>
+					<md-select ng-model="uploadDoc.selectedAccountType">
+					<!-- <md-option><em>None</em></md-option> -->
+						<md-option value="SAVING">Savings Account</md-option>
+						<md-option value="CURRENT">Current Account</md-option>
+						<md-option value="Overdraft">Overdraft Account</md-option>
+					</md-select>
+				</md-input-container>
+			</div>
+			<div layout="row" flex layout-align="start center">
+				<md-button class="md-primary md-raised" ng-model="uploadDoc.uploadedBankStatement" gf-pattern="'application/pdf'" ngf-accept="'application/pdf'" ngf-drop ngf-select>Upload Bank Statement</md-button>
+				{{uploadDoc.uploadedBankStatement.name}}
+				
+			</div>
 		</div>
 	</md-dialog-content>
 	<md-dialog-actions layout="row">
 		<span flex></span>
-		<md-button ng-click="answer('not useful')">
-			Not Useful
+		<md-progress-circular md-diameter="20" class="md-accent" ng-if="uploadDoc.loading"></md-progress-circular>
+		<md-button ng-click="uploadDoc.cancel()">
+			Cancel
 		</md-button>
-		<md-button ng-click="answer('useful')">
-			Useful
+		<md-button class="md-primary fw-700" ng-click="uploadDoc.uploadBankStatement(uploadDoc.uploadedBankStatement,uploadDoc.selectedBank,uploadDoc.selectedAccountType)">
+			Upload
 		</md-button>
 	</md-dialog-actions>
 </md-dialog>

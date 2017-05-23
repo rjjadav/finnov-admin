@@ -13,6 +13,7 @@
     var toolbar = this;
 
     toolbar.logout = logout;
+    toolbar.toggleSidenav = toggleSidenav;
 
     function logout(){
       data.get(api.logout, null, false)
@@ -24,8 +25,11 @@
         $rootScope.role = undefined;
         $state.go('app.main_auth.login');  
       })
+    }
 
-      
+
+    function toggleSidenav(navID){
+      $rootScope.$broadcast('toggle_sidenav',navID);
     }
   }
 })();

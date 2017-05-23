@@ -11,9 +11,22 @@
 			url: '/borrowers',
 	        views:{
 	          'content@app':{
-	            templateUrl: 'app/main/partner-backend/borrowers.html',
+	            templateUrl: 'app/main/partner-backend/borrowers/borrowers.html',
 	            controller: 'PartnerBorrowersController',
-	            // controllerAs: 'borrowers'
+	            controllerAs: 'borrowers'
+	          }
+	        },
+	        data:{
+	        	role : 'partner_admin'
+	        }
+		})
+		.state('app.main_create-account',{
+			url: '/create-account',
+	        views:{
+	          'content@app':{
+	            templateUrl: 'app/main/partner-backend/create-account/create-account.html',
+	            controller: 'CreateAccountController',
+	            controllerAs: 'account'
 	          }
 	        },
 	        data:{

@@ -6,11 +6,12 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($rootScope, $state, authorize, data, api) {
+  function MainController($rootScope, $state, $mdSidenav, authorize, data, api) {
     console.log(authorize)
     var vm = this;
 
     vm.getAllPartners = getAllPartners;
+    vm.toggleSidenav = toggleSidenav;
 
     vm.partnerList = undefined;
 
@@ -36,6 +37,21 @@
       });
     }
 
+
+    function toggleSidenav(navID){
+      console.log(navID);
+      $mdSidenav(navID)
+      .toggle()
+      .then(function () {
+        console.log("toggle " + navID + " is done");
+      });
+    }
+
+
+    $rootScope.$on('toggle_sidenav',function(event,args){
+      // console.log(args);
+      vm.toggleSidenav(args);
+    })
 
     $rootScope.$on('user_login_success', function(){
       if($rootScope.role == 'lender') vm.getAllPartners();

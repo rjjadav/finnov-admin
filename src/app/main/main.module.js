@@ -11,6 +11,7 @@
     'app.main.loans',
     'app.main.reports',
     'app.main.partner-backend',
+    'app.main.borrowers',
   ])
     .config(config);
 
