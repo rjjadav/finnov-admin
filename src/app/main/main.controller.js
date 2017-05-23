@@ -23,7 +23,7 @@
       if($rootScope.role == 'lender') vm.getAllPartners();
     }else{
       $rootScope.loggedIn = false;
-      $state.go('app.main_auth.login');
+      // $state.go('app.main_auth.login');
     }
 
 
