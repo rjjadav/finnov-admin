@@ -45,7 +45,7 @@
 	          $rootScope.name = response.data.name;
 	          $rootScope.$broadcast('user_login_success');
 	          // $state.go(CONST.defaultRedirect[$rootScope.role]);
-	          $state.go('app.main_borrower.upload');
+	          $state.go('app.main_borrower.scan');
 	        }else{
 	          $rootScope.loggedIn = false;
 	        }
